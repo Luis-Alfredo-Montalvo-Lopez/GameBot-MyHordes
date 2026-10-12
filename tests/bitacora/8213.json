@@ -12306,6 +12306,13 @@
         "method": "POST",
         "body": {}
       }
+    },
+    "20261012_215427_366": {
+      "request": {
+        "url": "/rest/v1/game/town/core/door/exit",
+        "method": "POST",
+        "body": {}
+      }
     }
   },
   "day1": {
