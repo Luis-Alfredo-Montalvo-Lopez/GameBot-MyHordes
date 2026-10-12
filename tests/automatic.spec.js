@@ -573,6 +573,7 @@ async function playInDeserted(){
 					            `Arma válida encontrada en la posición ${i}: ${useObj.key}`
 					        );
 					    } else {
+					    	await moveItem(inv.IdInvPer, inv.IdInvDes, useObj.key);
 					        console.error(
 					            `No se puede usar ${useObj.key}. Probando siguiente combinación...`
 					        );
