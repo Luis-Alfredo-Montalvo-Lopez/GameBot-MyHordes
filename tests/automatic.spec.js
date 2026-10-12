@@ -548,12 +548,36 @@ async function playInDeserted(){
 				const combination = findClosestWeaponsCombination([...weaponListData.weaponList, ...weaponListData.weaponHeavyList].filter(o => o.id !== 12), contZ - contObjetive, {...playInv, ...deseInv});
 				console.error(`combination: ${combination}`);
 				if(combination != null){
-					const useObj = combination.combo.reduce((min, obj) => obj.chance_kill < min.chance_kill ? obj : min);
-					console.error(`useObj: ${useObj}`);
-					console.error(`useObj:\n${JSON.stringify(useObj, null, 2)}`);
-					await moveItem(inv.IdInvDes, inv.IdInvPer, useObj.key);
-					await doAction("/api/beyond/desert/action", "POST", {item: useObj.key, action: getActionIdFromHtml(await doAction("/jx/beyond/partial/desert/actions", "POST", {}), useObj.key)});
-					canUseWeapon = true;
+					const orderedCombo = [...combination.combo]
+					    .sort((a, b) => a.chance_kill - b.chance_kill);
+					
+					for (let i = 0; i < combination.combo.length && !canUseWeapon; i++) {
+					    const useObj = combination.combo[i];
+					    console.error(`Probando objeto ${i + 1}/${combination.combo.length}`);
+					    console.error(`useObj:\n${JSON.stringify(useObj, null, 2)}`);
+					    await moveItem(inv.IdInvDes, inv.IdInvPer, useObj.key);
+					    let actionToDo = getActionIdFromHtml(
+					        await doAction("/jx/beyond/partial/desert/actions", "POST", {})
+					    );
+					    if (actionToDo != null) {
+					        await doAction(
+					            "/api/beyond/desert/action",
+					            "POST",
+					            {
+					                item: useObj.key,
+					                action: actionToDo
+					            }
+					        );
+					        canUseWeapon = true;
+					        console.error(
+					            `Arma válida encontrada en la posición ${i}: ${useObj.key}`
+					        );
+					    } else {
+					        console.error(
+					            `No se puede usar ${useObj.key}. Probando siguiente combinación...`
+					        );
+					    }
+					}
 				}else{
 					let battery = await searchItemIdInv([2], deseInv);
 					if(battery != undefined){
