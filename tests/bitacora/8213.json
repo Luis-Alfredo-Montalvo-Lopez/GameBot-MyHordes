@@ -11868,6 +11868,37 @@
           "action": null
         }
       }
+    },
+    "20261012_212251_148": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7626599",
+        "method": "PATCH",
+        "body": {
+          "d": "down-all",
+          "mod": null,
+          "to": "7626228"
+        }
+      }
+    },
+    "20261012_212251_784": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7626228/29047912",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7626599"
+        }
+      }
+    },
+    "20261012_212252_256": {
+      "request": {
+        "url": "/api/beyond/desert/heroic",
+        "method": "POST",
+        "body": {
+          "action": "3"
+        }
+      }
     }
   },
   "day1": {
@@ -11989,7 +12020,7 @@
   "heroicAction": {
     "hallazgo": true,
     "retorno": true,
-    "golpe": true,
+    "golpe": false,
     "pa": true
   },
   "test": {
@@ -13520,6 +13551,7 @@
       ],
       "tNotDried": 17,
       "currentPoss": 7
-    }
+    },
+    "usedHeroicAction": true
   }
 }
