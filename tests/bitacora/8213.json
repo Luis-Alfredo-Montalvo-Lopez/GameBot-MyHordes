@@ -5117,6 +5117,49 @@
           "action": null
         }
       }
+    },
+    "20261012_190831_850": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7626599",
+        "method": "PATCH",
+        "body": {
+          "d": "down-all",
+          "mod": null,
+          "to": "7626228"
+        }
+      }
+    },
+    "20261012_190832_520": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7626228/29047912",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7626599"
+        }
+      }
+    },
+    "20261012_190832_758": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7626228/29018085",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7626599"
+        }
+      }
+    },
+    "20261012_190833_394": {
+      "request": {
+        "url": "/api/beyond/desert/action",
+        "method": "POST",
+        "body": {
+          "item": "29018085",
+          "action": null
+        }
+      }
     }
   },
   "day1": {
