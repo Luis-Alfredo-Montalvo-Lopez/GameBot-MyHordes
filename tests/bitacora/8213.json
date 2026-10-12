@@ -12071,6 +12071,92 @@
           "y": 4
         }
       }
+    },
+    "20261012_212436_666": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7626599",
+        "method": "PATCH",
+        "body": {
+          "d": "down-all",
+          "mod": null,
+          "to": "7626230"
+        }
+      }
+    },
+    "20261012_212436_904": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7626230/29047912",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7626599"
+        }
+      }
+    },
+    "20261012_212438_002": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7626230/29018085",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7626599"
+        }
+      }
+    },
+    "20261012_212438_453": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7626230/28974295",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7626599"
+        }
+      }
+    },
+    "20261012_212438_884": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7626230/28995834",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7626599"
+        }
+      }
+    },
+    "20261012_212439_352": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7626230/29047970",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7626599"
+        }
+      }
+    },
+    "20261012_212440_082": {
+      "request": {
+        "url": "/api/beyond/desert/action",
+        "method": "POST",
+        "body": {
+          "item": "28973782",
+          "action": null
+        }
+      }
+    },
+    "20261012_212452_903": {
+      "request": {
+        "url": "/api/beyond/desert/move",
+        "method": "POST",
+        "body": {
+          "x": 4,
+          "y": 4
+        }
+      }
     }
   },
   "day1": {
@@ -13725,7 +13811,7 @@
         }
       ],
       "tNotDried": 17,
-      "currentPoss": 9
+      "currentPoss": 10
     },
     "usedHeroicAction": true
   }
