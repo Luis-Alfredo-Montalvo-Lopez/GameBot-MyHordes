@@ -2021,6 +2021,49 @@
           "y": 1
         }
       }
+    },
+    "20261012_182927_030": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7626599",
+        "method": "PATCH",
+        "body": {
+          "d": "down-all",
+          "mod": null,
+          "to": "7626227"
+        }
+      }
+    },
+    "20261012_182927_271": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7626227/28974243",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7626599"
+        }
+      }
+    },
+    "20261012_182927_495": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7626227/29047912",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7626599"
+        }
+      }
+    },
+    "20261012_182928_423": {
+      "request": {
+        "url": "/api/beyond/desert/action",
+        "method": "POST",
+        "body": {
+          "item": "28974243",
+          "action": "13"
+        }
+      }
     }
   },
   "day1": {
@@ -3564,7 +3607,6 @@
     "startItems": {
       "idFood": 123,
       "idWater": 1,
-      "idInvFood": "28974243",
       "idInvWater": "29047912"
     },
     "route": {
