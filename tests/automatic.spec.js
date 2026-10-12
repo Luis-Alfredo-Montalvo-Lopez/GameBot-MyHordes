@@ -550,6 +550,7 @@ async function playInDeserted(){
 				if(combination != null){
 					const useObj = combination.combo.reduce((min, obj) => obj.chance_kill < min.chance_kill ? obj : min);
 					console.error(`useObj: ${useObj}`);
+					console.error(`useObj:\n${JSON.stringify(useObj, null, 2)}`);
 					await moveItem(inv.IdInvDes, inv.IdInvPer, useObj.key);
 					await doAction("/api/beyond/desert/action", "POST", {item: useObj.key, action: getActionIdFromHtml(await doAction("/jx/beyond/partial/desert/actions", "POST", {}), useObj.key)});
 					canUseWeapon = true;
