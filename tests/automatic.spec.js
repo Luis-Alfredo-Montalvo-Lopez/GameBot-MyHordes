@@ -731,7 +731,9 @@ async function playInDeserted(){
 				const mgdZoneNote = await pag.locator('#mgd-zone-note').count();
 				const attackTime = await pag.locator('div.attack-time').innerText();
 				let inv = await getInventoryIds();
-				if (await mgdZoneNote > 0 || /^~[3210]:/.test(attackTime) || currentPoss.dried) {// moverse
+				if (await mgdZoneNote > 0 || currentPoss.dried || (
+					/^~[3210]:/.test(attackTime) && (currentDay != 1 || await getCurrentCountCitizens() > 35)
+				)) {// moverse
 					console.log("Inicia flujo para moverse");
 					// 3. Al moverse si no se cuenta con PA's suficientes deberán consumirse los recursos preparados para la ruta.
 					const currentPAs = await pag.locator('b[data-incidental-target="ap"]').getAttribute('data-value');
@@ -1738,4 +1740,14 @@ function getFormattedDate() {
 	const millis = (d.getMilliseconds() < 100 ? (d.getMilliseconds() < 10 ? '00' : '0') : '') + d.getMilliseconds();
 	
 	return `${yyyy}${mm}${dd}_${hh}${ii}${ss}_${millis}`;
+}
+
+async function getCurrentCountCitizens() {
+	try{
+		return parseInt(await doAction("/rest/v1/game/town/facilities/well", "GET", {}).match(
+		  /<span[^>]*class="[^"]*citizen_count[^"]*"[^>]*>(.*?)<\/span>/is
+		)?.[1]?.match(/\d+/)?.[0] || '0',10);
+	} catch (e){
+		return undefined;
+	}
 }
