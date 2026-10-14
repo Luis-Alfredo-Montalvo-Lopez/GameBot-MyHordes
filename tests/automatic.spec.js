@@ -732,7 +732,7 @@ async function playInDeserted(){
 				const attackTime = await pag.locator('div.attack-time').innerText();
 				let inv = await getInventoryIds();
 				if (await mgdZoneNote > 0 || currentPoss.dried || (
-					/^~[3210]:/.test(attackTime) && (currentDay != 1 || await getCurrentCountCitizens() > 35)
+					/^~[3210]:/.test(attackTime) && (currentDay != 1 || await getCurrentCountCitizens() >= 37)
 				)) {// moverse
 					console.log("Inicia flujo para moverse");
 					// 3. Al moverse si no se cuenta con PA's suficientes deberán consumirse los recursos preparados para la ruta.
