@@ -1160,6 +1160,7 @@ async function getDesertInventory(inv) {
 // @return: inv : {IdInvPer, IdInvSto, IdInvBau, IdInvDes}
 async function getInventoryIds() {
 	try {
+		currentPath = new URL(pag.url()).pathname;
 		if(currentPath != "/jx/beyond/desert/cached"){
 			if(lastDataSaved.inv != undefined){
 				return lastDataSaved.inv;
