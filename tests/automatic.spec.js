@@ -1309,7 +1309,9 @@ async function prepareToExplore(inv, storageInventory){
 			//evalua si se recogió un doggybag
 			let hasDoggyBag = searchItemIdInv([118], actInv?.target?.items);
 			dataSaved.test[currentDate].hasDoggyBag1 = hasDoggyBag;
-			hasDoggyBag = searchItemIdInv([118], await getPlayerInventory(inv));
+			let tempPlayerInv = await getPlayerInventory(inv);
+			dataSaved.test[currentDate].hasDoggyBag2_inv = tempPlayerInv;
+			hasDoggyBag = searchItemIdInv([118], tempPlayerInv);
 			dataSaved.test[currentDate].hasDoggyBag2 = hasDoggyBag;
 			if(hasDoggyBag){
 				//abre doggy-back
