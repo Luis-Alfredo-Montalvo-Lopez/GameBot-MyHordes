@@ -204,6 +204,39 @@
           "y": 0
         }
       }
+    },
+    "20261014_042948_620": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7647240",
+        "method": "PATCH",
+        "body": {
+          "d": "down-all",
+          "mod": null,
+          "to": "7646795"
+        }
+      }
+    },
+    "20261014_042949_162": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7646795/29072966",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7647240"
+        }
+      }
+    },
+    "20261014_042949_355": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7646795/29072958",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7647240"
+        }
+      }
     }
   },
   "day1": {
@@ -231,7 +264,8 @@
         {
           "x": 2,
           "y": 0,
-          "dried": false
+          "dried": false,
+          "purged": true
         },
         {
           "x": 3,
