@@ -1285,7 +1285,7 @@ async function prepareToExplore(inv, storageInventory){
 		dataSaved.test[currentDate].actInv0 = actInv;
 		if(actInv?.success){
 			//evalua si se recogió una lata
-			let hasLata = searchItemIdInv([3], actInv?.target?.items);
+			let hasLata = searchItemIdInv([3], actInv?.target);
 			dataSaved.test[currentDate].hasLata = hasLata;
 			if(hasLata){
 				//recoge abre latas
@@ -1307,7 +1307,7 @@ async function prepareToExplore(inv, storageInventory){
 				}
 			}
 			//evalua si se recogió un doggybag
-			let hasDoggyBag = searchItemIdInv([118], actInv?.target?.items);
+			let hasDoggyBag = searchItemIdInv([118], actInv?.target);
 			dataSaved.test[currentDate].hasDoggyBag1 = hasDoggyBag;
 			let tempPlayerInv = await getPlayerInventory(inv);
 			dataSaved.test[currentDate].hasDoggyBag2_inv = tempPlayerInv;
