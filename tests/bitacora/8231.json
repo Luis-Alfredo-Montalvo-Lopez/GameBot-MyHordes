@@ -3300,7 +3300,8 @@
         {
           "x": 4,
           "y": 0,
-          "dried": false
+          "dried": false,
+          "diggedRuin": true
         },
         {
           "x": 5,
