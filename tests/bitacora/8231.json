@@ -2008,6 +2008,92 @@
           "action": "13"
         }
       }
+    },
+    "20261016_181550_231": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7647240",
+        "method": "PATCH",
+        "body": {
+          "d": "down-all",
+          "mod": null,
+          "to": "7646871"
+        }
+      }
+    },
+    "20261016_181550_451": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7646871/29111036",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7647240"
+        }
+      }
+    },
+    "20261016_181551_415": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7646871/29092546",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7647240"
+        }
+      }
+    },
+    "20261016_181551_815": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7646871/29111130",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7647240"
+        }
+      }
+    },
+    "20261016_181552_235": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7646871/29114253",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7647240"
+        }
+      }
+    },
+    "20261016_181552_635": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7646871/29119438",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7647240"
+        }
+      }
+    },
+    "20261016_181553_276": {
+      "request": {
+        "url": "/api/beyond/desert/action",
+        "method": "POST",
+        "body": {
+          "item": "29072928",
+          "action": null
+        }
+      }
+    },
+    "20261016_181610_209": {
+      "request": {
+        "url": "/api/beyond/desert/move",
+        "method": "POST",
+        "body": {
+          "x": 5,
+          "y": 2
+        }
+      }
     }
   },
   "day1": {
@@ -3581,7 +3667,7 @@
         }
       ],
       "tNotDried": 17,
-      "currentPoss": 6
+      "currentPoss": 7
     }
   }
 }
