@@ -103,10 +103,19 @@
           "action": "32"
         }
       }
+    },
+    "20261016_222215_192": {
+      "request": {
+        "url": "/rest/v1/game/town/core/door",
+        "method": "PATCH",
+        "body": {
+          "action": "open"
+        }
+      }
     }
   },
   "day1": {
-    "currentStep": 3,
+    "currentStep": 4,
     "purge": true,
     "startItems": {
       "idFood": 125,
