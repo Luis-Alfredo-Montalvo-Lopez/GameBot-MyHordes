@@ -95,6 +95,13 @@
           "action": "open"
         }
       }
+    },
+    "20261017_223643_727": {
+      "request": {
+        "url": "/rest/v1/game/town/core/door/exit",
+        "method": "POST",
+        "body": {}
+      }
     }
   },
   "day1": {
