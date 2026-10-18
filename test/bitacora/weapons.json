@@ -2,8 +2,8 @@
   "success": true,
   "status": 200,
   "data": {
-    "version": "71ca4cbb09350126e0b676e6988944c5",
-    "generated_at": 1791675941,
+    "version": "254ded93a37a8817df7ec516fd553cb6",
+    "generated_at": 1792217715,
     "items": [
       {
         "id": 1,
@@ -48395,6 +48395,14 @@
         "id_mh": 767
       },
       {
+        "id": 530,
+        "titre": "Magellan de l'Outre-Monde",
+        "titre_feminin": null,
+        "nbr": 40,
+        "picto_id": 115,
+        "id_mh": 795
+      },
+      {
         "id": 312,
         "titre": "Porteur de la Maladie",
         "titre_feminin": null,
@@ -51787,7 +51795,8 @@
         508,
         524,
         526,
-        528
+        528,
+        530
       ]
     },
     "objectifs_ville": [
