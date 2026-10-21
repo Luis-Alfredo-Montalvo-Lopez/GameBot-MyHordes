@@ -2286,6 +2286,50 @@
           "to": "7970616"
         }
       }
+    },
+    "20261021_190344_996": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7977175",
+        "method": "PATCH",
+        "body": {
+          "d": "down-all",
+          "mod": null,
+          "to": "7970616"
+        }
+      }
+    },
+    "20261021_190345_644": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7970616/29190914",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7977175"
+        }
+      }
+    },
+    "20261021_190345_884": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7970616/29201310",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": "7977175"
+        }
+      }
+    },
+    "20261021_190346_482": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7977175/29201310",
+        "method": "PATCH",
+        "body": {
+          "d": "down",
+          "mod": null,
+          "to": "7970616"
+        }
+      }
     }
   },
   "day1": {
