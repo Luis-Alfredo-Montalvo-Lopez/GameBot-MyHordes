@@ -676,9 +676,17 @@ async function playInDeserted(){
 				if(!canUseWeapon && !canUseHeroicAction && !canUseWeaponBattery && (!purge || /^~[0123]:/.test(attackTime))){ // TODO: help en foro
 					if(dataSaved.postToDay == undefined){
 						if(currentSaved.usedHeroicAction == undefined && dataSaved.heroicAction.retorno ){ // aun con retorno
-							
+							if((await doAction("/api/beyond/desert/heroic", "POST", {action: "1"})).error){}else{
+								dataSaved.heroicAction.retorno = false;
+								currentSaved.usedHeroicAction = true;
+								canUseHeroicAction = true;
+							}
 						}else{ // ya no tengo retorno
-							
+							if((await doAction("/api/beyond/desert/heroic", "POST", {action: "3"})).error){}else{
+								dataSaved.heroicAction.golpe = false;
+								currentSaved.usedHeroicAction = true;
+								canUseHeroicAction = true;
+							}
 						}
 						dataSaved.postToDay = true;
 					}
