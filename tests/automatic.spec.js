@@ -124,7 +124,7 @@ test('myhordes', async () => {
 		pag = await browserLogin.newPage();
 		// se dirige al sitio
 		if(!(await login())){
-			return;
+    		throw new Error("No se logró iniciar sesión");
 		}
 		await new Promise(r => setTimeout(r, 5000));
 		await browserLogin.close();
