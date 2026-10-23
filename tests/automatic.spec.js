@@ -123,7 +123,9 @@ test('myhordes', async () => {
 		});
 		pag = await browserLogin.newPage();
 		// se dirige al sitio
-		await login();
+		if(!(await login())){
+			return;
+		}
 		await new Promise(r => setTimeout(r, 5000));
 		await browserLogin.close();
 		browserPlay = await chromium.launchPersistentContext(uniqueProfile, {
@@ -916,7 +918,7 @@ async function login(){
 			if(!(await nav('https://myhord.eu/'))){
 				if(!(await nav('https://myhord.fr/'))){
 					//TODO: ACORTAR TIEMPO DE ESPERA PARA LA SIGUIENTE EJECUCIÓN, YA QUE NO SE LOGRÓ EJECUTAR
-					return;
+					return false;
 				}
 			}
 		}
@@ -937,9 +939,10 @@ async function login(){
 			const btn = document.querySelector('input[name="sign_in"]');
 			if (btn) btn.removeAttribute('disabled');
 		});
-		await pag.click('input[name="sign_in"]', {timeout: 1000});
-		await pag.waitForSelector('hordes-header-ui', {state: 'attached',timeout: 5000});
+		await pag.click('input[name="sign_in"]', {timeout: 4000});
+		await pag.waitForSelector('hordes-header-ui', {state: 'attached',timeout: 7000});
 		console.error("Login Terminado: " + pag.url());
+		return true;
 	}catch(exception){
 		if (exception.name === 'TimeoutError') {
 			console.error("Se agotó el tiempo de espera al intentar hacer click");
@@ -947,6 +950,7 @@ async function login(){
 			console.error("Otro error ocurrió:", exception);
 		}
 	}
+	return false;
 }
 
 //flujo para ingresar a un pueblo
