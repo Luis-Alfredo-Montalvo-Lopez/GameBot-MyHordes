@@ -608,26 +608,26 @@ async function playInDeserted(){
 					if(!canUseWeaponBattery && (!purge || /^~[0123]:/.test(attackTime))){
 						if(currentSaved.usedHeroicAction == undefined && dataSaved.heroicAction.golpe){
 							if((await doAction("/api/beyond/desert/heroic", "POST", {action: "3"})).error){}else{
-								dataSaved.heroicAction.golpe = false;
 								currentSaved.usedHeroicAction = true;
 								canUseHeroicAction = true;
 							}
+							dataSaved.heroicAction.golpe = false;
 						}else{
 							if(currentSaved.usedHeroicAction == undefined && dataSaved.heroicAction.hallazgo){
 								if((await doAction("/api/beyond/desert/heroic", "POST", {action: "2"})).error){}else{// , [PENDIENTE]
-									dataSaved.heroicAction.hallazgo = false;
 									currentSaved.usedHeroicAction = true;
 									canUseHeroicAction = true;
 									
 									//TODO: usar globo
 								}
+								dataSaved.heroicAction.hallazgo = false;
 							}else{
 								if(currentSaved.usedHeroicAction == undefined && dataSaved.heroicAction.retorno && /^~[0]:/.test(attackTime) /* solo usar cuando queda 1 hora */){ 
 									if((await doAction("/api/beyond/desert/heroic", "POST", {action: "1"})).error){}else{
-										dataSaved.heroicAction.retorno = false;
 										currentSaved.usedHeroicAction = true;
 										canUseHeroicAction = true;
 									}
+									dataSaved.heroicAction.retorno = false;
 								}else{
 									if (/^~[0]:/.test(attackTime)) { // si queda 1 hora o menos acampar
 										if(currentSaved.usedHeroicAction == undefined && dataSaved.heroicAction.pa){
@@ -684,16 +684,16 @@ async function playInDeserted(){
 					if(dataSaved.postToDay == undefined){
 						if(currentSaved.usedHeroicAction == undefined && dataSaved.heroicAction.retorno ){ // aun con retorno
 							if((await doAction("/api/beyond/desert/heroic", "POST", {action: "1"})).error){}else{
-								dataSaved.heroicAction.retorno = false;
 								currentSaved.usedHeroicAction = true;
 								canUseHeroicAction = true;
 							}
+							dataSaved.heroicAction.retorno = false;
 						}else{ // ya no tengo retorno
 							if((await doAction("/api/beyond/desert/heroic", "POST", {action: "3"})).error){}else{
-								dataSaved.heroicAction.golpe = false;
 								currentSaved.usedHeroicAction = true;
 								canUseHeroicAction = true;
 							}
+							dataSaved.heroicAction.golpe = false;
 						}
 						dataSaved.postToDay = true;
 					}
