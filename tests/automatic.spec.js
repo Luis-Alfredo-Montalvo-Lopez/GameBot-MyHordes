@@ -244,7 +244,13 @@ async function main(){
 		}
 	}
 	// se determinan acciones a realizar según la situación actual del jugador
-	await evaluateWebSite();
+	try{
+		await evaluateWebSite();
+	}catch(exception){
+		console.log(exception);
+	}finally{
+		writeJSON(nameFile_dataSaved, dataSaved);
+	}
 }
 
 // segun el path del sitio actual realiza las asignaciones correspondientes
