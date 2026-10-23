@@ -560,15 +560,16 @@ async function playInDeserted(){
 					        await doAction("/jx/beyond/partial/desert/actions", "POST", {})
 					    );
 					    if (actionToDo != null) {
-					        await doAction(
+							if((await doAction(
 					            "/api/beyond/desert/action",
 					            "POST",
 					            {
 					                item: useObj.key,
 					                action: actionToDo
 					            }
-					        );
-					        canUseWeapon = true;
+					        )).error){}else{
+					        	canUseWeapon = true;
+							}
 					        console.error(
 					            `Arma válida encontrada en la posición ${i}: ${useObj.key}`
 					        );
