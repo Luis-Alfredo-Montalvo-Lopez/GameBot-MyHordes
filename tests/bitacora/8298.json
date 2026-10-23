@@ -115,13 +115,114 @@
     }
   },
   "day1": {
-    "currentStep": 4,
+    "currentStep": 5,
     "purge": true,
     "startItems": {
       "idFood": 122,
       "idWater": 1,
       "idInvFood": "29260226",
       "idInvWater": "29260221"
+    },
+    "route": {
+      "way": [
+        {
+          "x": 0,
+          "y": 0,
+          "dried": false
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "dried": false
+        },
+        {
+          "x": 2,
+          "y": 0,
+          "dried": false
+        },
+        {
+          "x": 3,
+          "y": 0,
+          "dried": false
+        },
+        {
+          "x": 4,
+          "y": 0,
+          "dried": false
+        },
+        {
+          "x": 5,
+          "y": 0,
+          "dried": false
+        },
+        {
+          "x": 5,
+          "y": 1,
+          "dried": false
+        },
+        {
+          "x": 5,
+          "y": 2,
+          "dried": false
+        },
+        {
+          "x": 5,
+          "y": 3,
+          "dried": false
+        },
+        {
+          "x": 5,
+          "y": 4,
+          "dried": false
+        },
+        {
+          "x": 4,
+          "y": 4,
+          "dried": false
+        },
+        {
+          "x": 3,
+          "y": 4,
+          "dried": false
+        },
+        {
+          "x": 2,
+          "y": 4,
+          "dried": false
+        },
+        {
+          "x": 1,
+          "y": 4,
+          "dried": false
+        },
+        {
+          "x": 0,
+          "y": 4,
+          "dried": false
+        },
+        {
+          "x": 0,
+          "y": 3,
+          "dried": false
+        },
+        {
+          "x": 0,
+          "y": 2,
+          "dried": false
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "dried": false
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "dried": false
+        }
+      ],
+      "tNotDried": 17,
+      "currentPoss": 0
     }
   },
   "hasUsedDrugs": false,
