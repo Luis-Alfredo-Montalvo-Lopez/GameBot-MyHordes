@@ -6037,6 +6037,17 @@
           "to": "7970539"
         }
       }
+    },
+    "20261023_212340_106": {
+      "request": {
+        "url": "/rest/v1/game/inventory/7977175",
+        "method": "PATCH",
+        "body": {
+          "d": "down-all",
+          "mod": null,
+          "to": "7970539"
+        }
+      }
     }
   },
   "day1": {
