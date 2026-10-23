@@ -567,7 +567,12 @@ async function playInDeserted(){
 					                item: useObj.key,
 					                action: actionToDo
 					            }
-					        )).error){}else{
+					        )).error){
+						    	await moveItem(inv.IdInvPer, inv.IdInvDes, useObj.key);
+						        console.error(
+						            `No se puede usar ${useObj.key}. Probando siguiente combinación...`
+						        );
+							}else{
 					        	canUseWeapon = true;
 							}
 					        console.error(
@@ -674,6 +679,7 @@ async function playInDeserted(){
 					}
 				}
 				currentPoss.purged = true;
+				console.error(canUseWeapon + ":" + canUseHeroicAction + ":" +canUseWeaponBattery + ":" +purge);
 				if(!canUseWeapon && !canUseHeroicAction && !canUseWeaponBattery && (!purge || /^~[0123]:/.test(attackTime))){ // TODO: help en foro
 					if(dataSaved.postToDay == undefined){
 						if(currentSaved.usedHeroicAction == undefined && dataSaved.heroicAction.retorno ){ // aun con retorno
