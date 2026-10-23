@@ -5676,7 +5676,7 @@
   "hasUsedDrugs": false,
   "heroicAction": {
     "hallazgo": true,
-    "retorno": true,
+    "retorno": false,
     "golpe": true,
     "pa": true
   },
