@@ -702,6 +702,8 @@ async function playInDeserted(){
 								canUseHeroicAction = true;
 							}
 							dataSaved.heroicAction.golpe = false;
+							await goto('/jx/beyond/desert/cached');
+							return await main();
 						}
 						dataSaved.postToDay = true;
 					}
