@@ -98,6 +98,7 @@ test('GetGestHordes', async ({page}) => {
 				"gh-mapid": parseInt(idTown, 10)
 			}
 		});
+		console.log(res);
 		return res.json();
 	}, idTown);
 	//console.log(response);
