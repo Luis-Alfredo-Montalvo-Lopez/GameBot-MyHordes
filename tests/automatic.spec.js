@@ -113,10 +113,8 @@ test('GetGestHordes', async ({page}) => {
 	}, idTown);
 	//console.log(response);
 	await page.goto(`https://gesthordes.fr/carte/${idTown}`);
-	console.log("RESPUESTA INI");
 	console.log(response);
-	console.log("RESPUESTA FIN");
-	JSON.parse(response);
+	JSON.stringify(response);
 	writeJSON('data/gestHordes.json', response);
 });
 
@@ -1127,7 +1125,7 @@ function writeJSON(filePath, data) {
 		fs.mkdirSync(path.dirname(filePath), { recursive: true });
 		fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 	} catch(error){
-		console.error(`Error al crear cambios para archivo ${filePath} en temporal: `, error.message);
+		//console.error(`Error al crear cambios para archivo ${filePath} en temporal: `, error.message);
 	}
 	
 	// Agregar y commitear cambios
@@ -1142,7 +1140,7 @@ function writeJSON(filePath, data) {
 		'@github.com/' + process.env.GITHUB_REPOSITORY + '.git HEAD:main');
 		console.log(`Archivo ${filePath} actualizado`);
 	} catch(error){
-		console.error(`Error al guardar cambios para archivo ${filePath} en GitHub: `, error.message);
+		//console.error(`Error al guardar cambios para archivo ${filePath} en GitHub: `, error.message);
 	}
 }
 
