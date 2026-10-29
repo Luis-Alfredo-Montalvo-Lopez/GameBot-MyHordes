@@ -1138,7 +1138,7 @@ function writeJSON(filePath, data) {
 		'@github.com/' + process.env.GITHUB_REPOSITORY + '.git HEAD:main');
 		console.log(`Archivo ${filePath} actualizado`);
 	} catch(error){
-		//console.error(`Error al guardar cambios para archivo ${filePath} en GitHub: `, error.message);
+		console.error(`Error al guardar cambios para archivo ${filePath} en GitHub: `, error.message);
 	}
 }
 
