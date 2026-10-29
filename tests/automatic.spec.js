@@ -1123,8 +1123,12 @@ function readJSON(filePath) {
 }
 // escribir JSON en archivo
 function writeJSON(filePath, data) {
-	fs.mkdirSync(path.dirname(filePath), { recursive: true });
-	fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+	try {
+		fs.mkdirSync(path.dirname(filePath), { recursive: true });
+		fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+	} catch(error){
+		console.error(`Error al crear cambios para archivo ${filePath} en temporal: `, error.message);
+	}
 	
 	// Agregar y commitear cambios
 	try{
