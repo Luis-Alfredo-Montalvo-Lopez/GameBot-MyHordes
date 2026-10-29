@@ -113,8 +113,8 @@ test('GetGestHordes', async ({page}) => {
 	}, idTown);
 	//console.log(response);
 	await page.goto(`https://gesthordes.fr/carte/${idTown}`);
-	console.log(response);
-	JSON.stringify(response);
+	//console.log(response);
+	JSON.parse(JSON.stringify(response));
 	writeJSON('data/gestHordes.json', response);
 });
 
