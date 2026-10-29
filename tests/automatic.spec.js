@@ -98,7 +98,7 @@ test('GetGestHordes', async ({page}) => {
 				"gh-mapid": parseInt(idTown, 10)
 			}
 		});
-		const contentType = res.headers()["content-type"];
+		const contentType = res.headers.get("content-type");
 		let result;
 		if (contentType && contentType.includes("application/json")) {
 			try{
