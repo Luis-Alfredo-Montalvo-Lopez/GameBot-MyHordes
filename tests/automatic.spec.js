@@ -114,7 +114,7 @@ test('GetGestHordes', async ({page}) => {
 	//console.log(response);
 	await page.goto(`https://gesthordes.fr/carte/${idTown}`);
 	//console.log(response);
-	JSON.parse(JSON.stringify(response));
+	parseJsonObject(response);
 	writeJSON('data/gestHordes.json', response);
 });
 
@@ -1796,4 +1796,20 @@ async function getCurrentCountCitizens() {
 	} catch (e){
 		return undefined;
 	}
+}
+function parseJsonObject(value) {
+    const parsed =
+        typeof value === 'string'
+            ? JSON.parse(value)
+            : value;
+
+    if (
+        parsed === null ||
+        typeof parsed !== 'object' ||
+        Array.isArray(parsed)
+    ) {
+        throw new Error('La respuesta no es un objeto JSON');
+    }
+
+    return parsed;
 }
