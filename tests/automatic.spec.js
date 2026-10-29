@@ -98,12 +98,23 @@ test('GetGestHordes', async ({page}) => {
 				"gh-mapid": parseInt(idTown, 10)
 			}
 		});
-		console.log(res);
-		return res.json();
+		const contentType = response.headers()["content-type"];
+		let result;
+		if (contentType && contentType.includes("application/json")) {
+			try{
+				result = await res.json();
+			}catch(err){
+				result = await res.text();
+			}
+		} else {
+			result = await res.text();
+		}
+		return result;
 	}, idTown);
 	//console.log(response);
 	await page.goto(`https://gesthordes.fr/carte/${idTown}`);
-
+	console.log(response);
+	JSON.parse(response);
 	writeJSON('data/gestHordes.json', response);
 });
 
