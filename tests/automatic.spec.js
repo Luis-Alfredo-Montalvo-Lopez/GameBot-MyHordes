@@ -829,10 +829,11 @@ async function playInDeserted(){
 							if(currentSaved.route.currentPoss <= 4){ // si se encuentra a X PA de distancia
 								if(takeHeavy){
 									//let playInvTemp = await searchMoveItem(inv.IdInvDes, inv.IdInvPer, weaponHeavyList); // solo toma las armas
-									console.log(items.heavyList);
+									console.log("items" + items.heavyList);
 									const primeraMitad = items.heavyList.slice(0, Math.floor(items.heavyList.length / 2));
-									console.log(primeraMitad);
+									console.log("primeraMitad" + primeraMitad);
 									let playInvTemp = await searchMoveItem(inv.IdInvDes, inv.IdInvPer, primeraMitad);
+									console.log("playInvTemp" + playInvTemp);
 									if(playInvTemp == undefined){
 										takeHeavy = false;
 										continue;
