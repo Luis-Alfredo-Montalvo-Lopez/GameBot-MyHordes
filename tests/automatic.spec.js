@@ -819,41 +819,35 @@ async function playInDeserted(){
 						if(currentSaved.startItems.idInvWater != undefined){
 							await moveItem(inv.IdInvDes, inv.IdInvPer, currentSaved.startItems.idInvWater);
 						}
-						dataSaved.invSize = await getInventorySize(inv.IdInvPer);
+						setPlayerInv(await getInventorySize(inv.IdInvPer));
 						let playInv = await getPlayerInventory(inv);
 						let deseInv = await getDesertInventory(inv);
 						let takeHeavy = true;
 						const weaponHeavyList = weaponListData.weaponHeavyList.map(o => o.id);
 						const weaponList = weaponListData.weaponList.map(o => o.id);
-						while(Object.keys(playInv).length < dataSaved.invSize && Object.keys(deseInv).length != 0){
+						while(Object.keys(playInv).length < lastDataSaved.invSize && Object.keys(deseInv).length != 0){
 							if(currentSaved.route.currentPoss <= 4){ // si se encuentra a X PA de distancia
 								if(takeHeavy){
 									//let playInvTemp = await searchMoveItem(inv.IdInvDes, inv.IdInvPer, weaponHeavyList); // solo toma las armas
-									console.log("items" + items.heavyList);
 									const primeraMitad = items.heavyList.slice(0, Math.floor(items.heavyList.length / 2));
-									console.log("primeraMitad" + primeraMitad);
 									let playInvTemp = await searchMoveItem(inv.IdInvDes, inv.IdInvPer, primeraMitad);
-									console.log("playInvTemp" + playInvTemp);
 									if(playInvTemp == undefined){
 										takeHeavy = false;
 										continue;
 									}else{
-										dataSaved.invSize = playInvTemp.target.size;
+										setPlayerInv(playInvTemp);
 										playInv = await getListItems(playInvTemp.target);
 										deseInv = await getListItems(playInvTemp.source);
 										takeHeavy = false;
 									}
 								}else{
 									//let playInvTemp = await searchMoveItem(inv.IdInvDes, inv.IdInvPer, weaponList);// solo toma las armas
-									console.log("items" + items.list);
 									const primeraMitad = items.list.slice(0, Math.floor(items.list.length / 2));
-									console.log("primeraMitad" + primeraMitad);
 									let playInvTemp = await searchMoveItem(inv.IdInvDes, inv.IdInvPer, primeraMitad);
-									console.log("playInvTemp" + JSON.stringify(playInvTemp));
 									if(playInvTemp == undefined){
 										break;
 									}else{
-										dataSaved.invSize = playInvTemp.target.size;
+										setPlayerInv(playInvTemp);
 										playInv = await getListItems(playInvTemp.target);
 										deseInv = await getListItems(playInvTemp.source);
 									}
@@ -865,7 +859,7 @@ async function playInDeserted(){
 										takeHeavy = false;
 										continue;
 									}else{
-										dataSaved.invSize = playInvTemp.target.size;
+										setPlayerInv(playInvTemp);
 										playInv = await getListItems(playInvTemp.target);
 										deseInv = await getListItems(playInvTemp.source);
 										takeHeavy = false;
@@ -875,7 +869,7 @@ async function playInDeserted(){
 									if(playInvTemp == undefined){
 										break;
 									}else{
-										dataSaved.invSize = playInvTemp.target.size;
+										setPlayerInv(playInvTemp);
 										playInv = await getListItems(playInvTemp.target);
 										deseInv = await getListItems(playInvTemp.source);
 									}
@@ -929,6 +923,7 @@ async function acceptDead(){
 	
 	dataSaved = {};
 	lastDataSaved.inv = undefined;
+	lastDataSaved.invSize = undefined;
 	writeJSON(nameFile_dataSaved, dataSaved);
 	
 	lastWords = readJSON(lastWordsFile);
@@ -1161,6 +1156,9 @@ function writeJSON(filePath, data) {
 
 // obtiene el tamaño maximo del inventario
 async function getInventorySize(idInv){
+	if(lastDataSaved.invSize != undefined){
+		return lastDataSaved.invSize;
+	}
 	if(idInv == undefined){
 		return undefined;
 	}
@@ -1851,4 +1849,19 @@ async function sendTelegramMessage(message) {
   } catch (error) {
     console.error(`⚠️ Error enviando mensaje a Telegram: ${error.message}`);
   }
+}
+function setPlayerInv(playInvTemp){
+	if(lastDataSaved.invSize != undefined && lastDataSaved.invSize != 5){
+		return;
+	}else{
+		if(playInvTemp?.target?.size){
+			lastDataSaved.invSize = playInvTemp.target.size;
+		}else{
+			if(!Number.isNaN(Number(playInvTemp))){
+				lastDataSaved.invSize = playInvTemp;
+			}else{
+				lastDataSaved.invSize = 5;
+			}
+		}
+	}
 }
