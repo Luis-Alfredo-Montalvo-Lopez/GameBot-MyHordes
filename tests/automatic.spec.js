@@ -167,7 +167,7 @@ test('myhordes', async () => {
 		if(Object.keys(items).length === 0){
 			items = readJSON('data/items.json');
 		}
-		console.log(items);
+		//console.log(items);
 		
 		// inicia ejecución
 		await main();
@@ -829,7 +829,9 @@ async function playInDeserted(){
 							if(currentSaved.route.currentPoss <= 4){ // si se encuentra a X PA de distancia
 								if(takeHeavy){
 									//let playInvTemp = await searchMoveItem(inv.IdInvDes, inv.IdInvPer, weaponHeavyList); // solo toma las armas
+									console.log(items.heavyList);
 									const primeraMitad = items.heavyList.slice(0, Math.floor(items.heavyList.length / 2));
+									console.log(primeraMitad);
 									let playInvTemp = await searchMoveItem(inv.IdInvDes, inv.IdInvPer, primeraMitad);
 									if(playInvTemp == undefined){
 										takeHeavy = false;
