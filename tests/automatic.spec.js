@@ -48,6 +48,8 @@ let countMainInvocation = 0;
 let uniqueProfile;
 let weaponListData = {};
 let items = {};
+const botToken = "8571353822:AAH1avvfeURxxlx0ow2E5dpBorv0aq9mqrk"
+const $chatId  = "1975024455"
 test('resetLogs', async ({ page }) => {
 	// Navegar para que el navegador obtenga la cookie de Cloudflare
 	await page.goto('https://gesthordes.fr/rest/v1/prototype/all');
@@ -914,6 +916,9 @@ async function playInDeserted(){
 // flujo para aceptar la muerte cuando la partida termina
 async function acceptDead(){
 	await pag.waitForSelector('button[x-ajax-href="/jx/game/raventimes"]');
+	
+	const latestDay = Object.keys(dataSaved).sort((a, b) => parseInt(a.slice(3)) - parseInt(b.slice(3))).pop();
+	await sendTelegramMessage(`Juego Terminado: ${latestDay} en el paso: ${dataSaved[latestDay].currentStep}`);
 	
 	dataSaved = {};
 	lastDataSaved.inv = undefined;
@@ -1815,4 +1820,28 @@ function parseJsonObject(value) {
     }
 
     return parsed;
+}
+async function sendTelegramMessage(message) {
+  try {
+    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: message
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error(`⚠️ Error enviando mensaje a Telegram: ${error.message}`);
+  }
 }
