@@ -845,8 +845,11 @@ async function playInDeserted(){
 									}
 								}else{
 									//let playInvTemp = await searchMoveItem(inv.IdInvDes, inv.IdInvPer, weaponList);// solo toma las armas
+									console.log("items" + items.list);
 									const primeraMitad = items.list.slice(0, Math.floor(items.list.length / 2));
+									console.log("primeraMitad" + primeraMitad);
 									let playInvTemp = await searchMoveItem(inv.IdInvDes, inv.IdInvPer, primeraMitad);
+									console.log("playInvTemp" + playInvTemp);
 									if(playInvTemp == undefined){
 										break;
 									}else{
