@@ -1298,7 +1298,7 @@ async function moveItem(fromIdInv, toIdInv, id){
 	}else {
 		dir = "up";
 	}
-	return (await doAction("/rest/v1/game/inventory/"+fromIdInv+"/"+id, "PATCH", {d: dir, mod: null, to: toIdInv}));
+	return (await doAction("/rest/v1/game/inventory/"+fromIdInv+"/"+id, "PATCH", {d: dir, mod: null, to: Number(toIdInv)}));
 }
 // busca y mueve un objeto entre inventarios
 async function searchMoveItem(fromIdInv, toIdInv, arrItemsToSearch){
