@@ -836,7 +836,7 @@ async function playInDeserted(){
 										continue;
 									}else{
 										if(playInvTemp.target == undefined || playInvTemp.target == null){
-											playInvTemp.target = getPlayerInventory(inv);
+											playInvTemp.target = await getPlayerInventory(inv);
 											console.log(playInvTemp.target);
 										}
 										setPlayerInv(playInvTemp);
@@ -852,7 +852,7 @@ async function playInDeserted(){
 										break;
 									}else{
 										if(playInvTemp.target == undefined || playInvTemp.target == null){
-											playInvTemp.target = getPlayerInventory(inv);
+											playInvTemp.target = await getPlayerInventory(inv);
 											console.log(playInvTemp.target);
 										}
 										setPlayerInv(playInvTemp);
@@ -868,7 +868,7 @@ async function playInDeserted(){
 										continue;
 									}else{
 										if(playInvTemp.target == undefined || playInvTemp.target == null){
-											playInvTemp.target = getPlayerInventory(inv);
+											playInvTemp.target = await getPlayerInventory(inv);
 											console.log(playInvTemp.target);
 										}
 										setPlayerInv(playInvTemp);
@@ -882,7 +882,7 @@ async function playInDeserted(){
 										break;
 									}else{
 										if(playInvTemp.target == undefined || playInvTemp.target == null){
-											playInvTemp.target = getPlayerInventory(inv);
+											playInvTemp.target = await getPlayerInventory(inv);
 											console.log(playInvTemp.target);
 										}
 										setPlayerInv(playInvTemp);
