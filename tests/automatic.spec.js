@@ -836,7 +836,7 @@ async function playInDeserted(){
 										continue;
 									}else{
 										if(playInvTemp.target == undefined || playInvTemp.target == null){
-											playInvTemp.target = await getPlayerInventory(inv);
+											playInvTemp.target = await getHttpPlayerInventory(inv);
 											console.log(playInvTemp.target);
 										}
 										setPlayerInv(playInvTemp);
@@ -852,7 +852,7 @@ async function playInDeserted(){
 										break;
 									}else{
 										if(playInvTemp.target == undefined || playInvTemp.target == null){
-											playInvTemp.target = await getPlayerInventory(inv);
+											playInvTemp.target = await getHttpPlayerInventory(inv);
 											console.log(playInvTemp.target);
 										}
 										setPlayerInv(playInvTemp);
@@ -868,7 +868,7 @@ async function playInDeserted(){
 										continue;
 									}else{
 										if(playInvTemp.target == undefined || playInvTemp.target == null){
-											playInvTemp.target = await getPlayerInventory(inv);
+											playInvTemp.target = await getHttpPlayerInventory(inv);
 											console.log(playInvTemp.target);
 										}
 										setPlayerInv(playInvTemp);
@@ -882,7 +882,7 @@ async function playInDeserted(){
 										break;
 									}else{
 										if(playInvTemp.target == undefined || playInvTemp.target == null){
-											playInvTemp.target = await getPlayerInventory(inv);
+											playInvTemp.target = await getHttpPlayerInventory(inv);
 											console.log(playInvTemp.target);
 										}
 										setPlayerInv(playInvTemp);
@@ -1192,6 +1192,12 @@ async function getInventory(idInv){
 	}
 	return await getListItems(await doAction("/rest/v1/game/inventory/" + idInv, "GET", {}));
 }
+async function getHttpResponseInventory(idInv){
+	if(idInv == undefined){
+		return undefined;
+	}
+	return await doAction("/rest/v1/game/inventory/" + idInv, "GET", {});
+}
 // obtiene el listado de items existentes en inventario indicado
 async function getListItems(listItems){
 	const items = {};
@@ -1227,7 +1233,10 @@ async function getBaulInventory(inv) {
 async function getDesertInventory(inv) {
 	return await getInventory(inv.IdInvDes);
 }
-
+// obtiene el listado de items existentes en el inventario del jugador
+async function getHttpPlayerInventory(inv) {
+	return await getHttpResponseInventory(inv.IdInvPer);
+}
 // recupera los ids de los inventarios Personal, Storage y Baul
 // @return: inv : {IdInvPer, IdInvSto, IdInvBau, IdInvDes}
 async function getInventoryIds() {
