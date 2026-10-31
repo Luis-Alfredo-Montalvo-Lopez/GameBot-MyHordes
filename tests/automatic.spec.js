@@ -167,6 +167,7 @@ test('myhordes', async () => {
 		if(Object.keys(items).length === 0){
 			items = readJSON('data/items.json');
 		}
+		console.log(items);
 		
 		// inicia ejecución
 		await main();
