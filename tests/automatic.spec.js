@@ -837,7 +837,9 @@ async function playInDeserted(){
 									}else{
 										if(playInvTemp.target == undefined || playInvTemp.target == null){
 											playInvTemp.target = await getHttpPlayerInventory(inv);
-											console.log(playInvTemp.target);
+										}
+										if(playInvTemp.source == undefined || playInvTemp.source == null){
+											playInvTemp.source = await getHttpDesertInventory(inv);
 										}
 										setPlayerInv(playInvTemp);
 										playInv = await getListItems(playInvTemp.target);
@@ -853,7 +855,9 @@ async function playInDeserted(){
 									}else{
 										if(playInvTemp.target == undefined || playInvTemp.target == null){
 											playInvTemp.target = await getHttpPlayerInventory(inv);
-											console.log(playInvTemp.target);
+										}
+										if(playInvTemp.source == undefined || playInvTemp.source == null){
+											playInvTemp.source = await getHttpDesertInventory(inv);
 										}
 										setPlayerInv(playInvTemp);
 										playInv = await getListItems(playInvTemp.target);
@@ -869,7 +873,9 @@ async function playInDeserted(){
 									}else{
 										if(playInvTemp.target == undefined || playInvTemp.target == null){
 											playInvTemp.target = await getHttpPlayerInventory(inv);
-											console.log(playInvTemp.target);
+										}
+										if(playInvTemp.source == undefined || playInvTemp.source == null){
+											playInvTemp.source = await getHttpDesertInventory(inv);
 										}
 										setPlayerInv(playInvTemp);
 										playInv = await getListItems(playInvTemp.target);
@@ -883,7 +889,9 @@ async function playInDeserted(){
 									}else{
 										if(playInvTemp.target == undefined || playInvTemp.target == null){
 											playInvTemp.target = await getHttpPlayerInventory(inv);
-											console.log(playInvTemp.target);
+										}
+										if(playInvTemp.source == undefined || playInvTemp.source == null){
+											playInvTemp.source = await getHttpDesertInventory(inv);
 										}
 										setPlayerInv(playInvTemp);
 										playInv = await getListItems(playInvTemp.target);
@@ -1236,6 +1244,10 @@ async function getDesertInventory(inv) {
 // obtiene el listado de items existentes en el inventario del jugador
 async function getHttpPlayerInventory(inv) {
 	return await getHttpResponseInventory(inv.IdInvPer);
+}
+// obtiene el listado de items existentes en el desierto
+async function getHttpDesertInventory(inv) {
+	return await getHttpResponseInventory(inv.IdInvDes);
 }
 // recupera los ids de los inventarios Personal, Storage y Baul
 // @return: inv : {IdInvPer, IdInvSto, IdInvBau, IdInvDes}
