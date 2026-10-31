@@ -835,6 +835,9 @@ async function playInDeserted(){
 										takeHeavy = false;
 										continue;
 									}else{
+										if(playInvTemp.target == undefined || playInvTemp.target == null){
+											playInvTemp.target = getPlayerInventory(inv);
+										}
 										setPlayerInv(playInvTemp);
 										playInv = await getListItems(playInvTemp.target);
 										deseInv = await getListItems(playInvTemp.source);
@@ -847,6 +850,9 @@ async function playInDeserted(){
 									if(playInvTemp == undefined){
 										break;
 									}else{
+										if(playInvTemp.target == undefined || playInvTemp.target == null){
+											playInvTemp.target = getPlayerInventory(inv);
+										}
 										setPlayerInv(playInvTemp);
 										playInv = await getListItems(playInvTemp.target);
 										deseInv = await getListItems(playInvTemp.source);
@@ -859,6 +865,9 @@ async function playInDeserted(){
 										takeHeavy = false;
 										continue;
 									}else{
+										if(playInvTemp.target == undefined || playInvTemp.target == null){
+											playInvTemp.target = getPlayerInventory(inv);
+										}
 										setPlayerInv(playInvTemp);
 										playInv = await getListItems(playInvTemp.target);
 										deseInv = await getListItems(playInvTemp.source);
@@ -869,6 +878,9 @@ async function playInDeserted(){
 									if(playInvTemp == undefined){
 										break;
 									}else{
+										if(playInvTemp.target == undefined || playInvTemp.target == null){
+											playInvTemp.target = getPlayerInventory(inv);
+										}
 										setPlayerInv(playInvTemp);
 										playInv = await getListItems(playInvTemp.target);
 										deseInv = await getListItems(playInvTemp.source);
