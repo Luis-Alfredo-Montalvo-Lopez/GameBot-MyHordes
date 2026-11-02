@@ -735,5 +735,9 @@
         }
       }
     }
+  },
+  "day1": {
+    "currentStep": 0,
+    "purge": true
   }
 }
