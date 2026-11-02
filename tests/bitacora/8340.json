@@ -430,6 +430,16 @@
         "method": "POST",
         "body": {}
       }
+    },
+    "20261102_225129_242": {
+      "request": {
+        "url": "/api/beyond/desert/move",
+        "method": "POST",
+        "body": {
+          "x": 1,
+          "y": 0
+        }
+      }
     }
   },
   "hasUsedDrugs": false,
