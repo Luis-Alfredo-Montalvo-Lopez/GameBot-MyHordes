@@ -423,6 +423,13 @@
           "action": "open"
         }
       }
+    },
+    "20261102_225123_173": {
+      "request": {
+        "url": "/rest/v1/game/town/core/door/exit",
+        "method": "POST",
+        "body": {}
+      }
     }
   },
   "hasUsedDrugs": false,
