@@ -1841,7 +1841,7 @@ function getFormattedDate() {
 
 async function getCurrentCountCitizens() {
 	try{
-		return parseInt(await doAction("/rest/v1/game/town/facilities/well", "GET", {}).match(
+		return parseInt((await doAction("/jx/town/citizens", "GET", {})).match(
 		  /<span[^>]*class="[^"]*citizen_count[^"]*"[^>]*>(.*?)<\/span>/is
 		)?.[1]?.match(/\d+/)?.[0] || '0',10);
 	} catch (e){
