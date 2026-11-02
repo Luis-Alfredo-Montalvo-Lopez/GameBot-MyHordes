@@ -16,9 +16,9 @@ const readFile = util.promisify(fs.readFile);
 let pag = undefined;
 let basePath = "";
 let currentPath = "";
-const user = "mylhordes";
+const el0 = "mylhordes";
 //myhordes0
-const pass = "f6e1a8350911";
+const el1 = "f6e1a8350911";
 const actions = {
 	"/jx/ghost/welcome": joinToTown,
 	"/jx/town/dashboard": playInTown,
@@ -988,8 +988,8 @@ async function login(){
 	try{
 		await pag.click('#et_login_button', {timeout: 3000});
 		await pag.waitForNavigation({ waitUntil: 'domcontentloaded' });
-		await pag.type('input[name="login"]', user, { delay: 150 });
-		await pag.type('input[name="password"]', pass, { delay: 150 });
+		await pag.type('input[name="login"]', el0, { delay: 150 });
+		await pag.type('input[name="password"]', el1, { delay: 150 });
 		await pag.evaluate(() => {
 			const btn = document.querySelector('input[name="sign_in"]');
 			if (btn) btn.removeAttribute('disabled');
