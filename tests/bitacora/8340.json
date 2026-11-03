@@ -1311,6 +1311,16 @@
         "method": "POST",
         "body": {}
       }
+    },
+    "20261103_202357_523": {
+      "request": {
+        "url": "/api/beyond/desert/move",
+        "method": "POST",
+        "body": {
+          "x": 1,
+          "y": 0
+        }
+      }
     }
   },
   "hasUsedDrugs": false,
