@@ -464,11 +464,12 @@ async function playInDeserted(){
 	await pag.waitForSelector('#header-rucksack-items');
 	try{
 		// se busca el día actual y se ejecuta el proceso correspondiente
-		let currentDay = parseInt((await pag.locator('span.day-number').innerText()).replace(/\D/g, ''), 10);
+		let currentDay = parseInt((await pag.locator('span.day-number').innerText()).replace(/\D/g, ''), 15);
 		if(dataSaved[`day${currentDay}`]?.camping){
 			return;
 		}
 		const currentSaved = dataSaved[`day${currentDay}`];
+		console.log(currentSaved);
 		const currentPoss = currentSaved.route.way[currentSaved.route.currentPoss];
 		/*
 			Reglas para moverse:
