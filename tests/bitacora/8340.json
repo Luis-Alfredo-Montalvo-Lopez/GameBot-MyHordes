@@ -1371,6 +1371,16 @@
           "action": "13"
         }
       }
+    },
+    "20261103_211149_457": {
+      "request": {
+        "url": "/api/beyond/desert/move",
+        "method": "POST",
+        "body": {
+          "x": 1,
+          "y": 0
+        }
+      }
     }
   },
   "hasUsedDrugs": false,
@@ -5520,7 +5530,7 @@
         }
       ],
       "tNotDried": 11,
-      "currentPoss": 0
+      "currentPoss": 1
     }
   }
 }
