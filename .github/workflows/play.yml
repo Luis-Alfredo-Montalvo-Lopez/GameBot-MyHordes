@@ -6,10 +6,14 @@ on:
   #schedule:
   #  - cron: "*/30 * * * *"
   workflow_dispatch:       # también lo puedes lanzar manualmente
-
+  
 permissions:
   contents: write   # da permiso de escritura al GITHUB_TOKEN
   
+concurrency:
+  group: play-workflow
+  cancel-in-progress: false
+
 jobs:
   test:
     timeout-minutes: 20
