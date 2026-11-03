@@ -469,7 +469,7 @@ async function playInDeserted(){
 			return;
 		}
 		const currentSaved = dataSaved[`day${currentDay}`];
-		console.log(currentSaved);
+		//console.log(currentSaved);
 		const currentPoss = currentSaved.route.way[currentSaved.route.currentPoss];
 		/*
 			Reglas para moverse:
