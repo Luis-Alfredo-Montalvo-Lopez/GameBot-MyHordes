@@ -1251,6 +1251,17 @@
           "y": 0
         }
       }
+    },
+    "20261103_202043_331": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8043241",
+        "method": "PATCH",
+        "body": {
+          "d": "down-all",
+          "mod": null,
+          "to": "8038322"
+        }
+      }
     }
   },
   "hasUsedDrugs": false,
@@ -4313,7 +4324,7 @@
     }
   },
   "day1": {
-    "currentStep": 0,
+    "currentStep": 1,
     "purge": true
   }
 }
