@@ -970,6 +970,16 @@
           "y": 0
         }
       }
+    },
+    "20261103_153034_420": {
+      "request": {
+        "url": "/api/beyond/desert/move",
+        "method": "POST",
+        "body": {
+          "x": 1,
+          "y": 0
+        }
+      }
     }
   },
   "hasUsedDrugs": false,
