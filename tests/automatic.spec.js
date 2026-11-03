@@ -506,7 +506,37 @@ async function playInDeserted(){
 			// ir a la siguiente posición
 			const nextPoss = currentSaved.route.way[currentSaved.route.currentPoss + 1];
 			if((await doAction("/api/beyond/desert/move", "POST", { x: nextPoss.x, y: nextPoss.y })).error){
-				// TODO: acción si no logré moverme
+				// TODO: acción si no logré moverme					const currentPAs = await pag.locator('b[data-incidental-target="ap"]').getAttribute('data-value');
+				if(currentPAs == 0){ // consumir
+					console.log("No tiene PAs, intenta consumir");
+					await dropPlayerInventory(inv);
+					if(currentSaved.startItems.idInvFood != undefined){
+						await moveItem(inv.IdInvDes, inv.IdInvPer, currentSaved.startItems.idInvFood);
+					}
+					if(currentSaved.startItems.idInvWater != undefined){
+						await moveItem(inv.IdInvDes, inv.IdInvPer, currentSaved.startItems.idInvWater);
+					}
+					let canUseItem = false;
+					//comer
+					if(currentSaved?.startItems?.idInvFood === undefined || (await doAction("/api/beyond/desert/action", "POST", {item: currentSaved.startItems.idInvFood, action: getActionIdFromHtml(await doAction("/jx/beyond/partial/desert/actions", "POST", {}), currentSaved.startItems.idInvFood)})).error){
+						//tomar agua
+						if(currentSaved?.startItems?.idInvWater === undefined || (await doAction("/api/beyond/desert/action", "POST", {item: currentSaved.startItems.idInvWater, action: getActionIdFromHtml(await doAction("/jx/beyond/partial/desert/actions", "POST", {}), currentSaved.startItems.idInvWater)})).error){
+							// TODO: acción si no logré comer ni tomar agua
+						}else{
+							currentSaved.startItems.idInvWater = undefined;
+							canUseItem = true;
+						}
+					}else{
+						currentSaved.startItems.idInvFood = undefined;
+						canUseItem = true;
+					}
+					if(canUseItem){
+						writeJSON(nameFile_dataSaved, dataSaved);
+						return await main();
+					}else{
+						// TODO: Avisar que se ha quedado sin PAs y no logró consumir nada
+					}
+				}
 			}else{
 				currentSaved.route.currentPoss = currentSaved.route.currentPoss + 1;
 				//writeJSON(nameFile_dataSaved, dataSaved);
