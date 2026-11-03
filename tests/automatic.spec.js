@@ -509,6 +509,7 @@ async function playInDeserted(){
 				// TODO: acción si no logré moverme					
 				const currentPAs = await pag.locator('b[data-incidental-target="ap"]').getAttribute('data-value');
 				if(currentPAs == 0){ // consumir
+					let inv = await getInventoryIds();
 					console.log("No tiene PAs, intenta consumir");
 					await dropPlayerInventory(inv);
 					if(currentSaved.startItems.idInvFood != undefined){
