@@ -506,7 +506,8 @@ async function playInDeserted(){
 			// ir a la siguiente posición
 			const nextPoss = currentSaved.route.way[currentSaved.route.currentPoss + 1];
 			if((await doAction("/api/beyond/desert/move", "POST", { x: nextPoss.x, y: nextPoss.y })).error){
-				// TODO: acción si no logré moverme					const currentPAs = await pag.locator('b[data-incidental-target="ap"]').getAttribute('data-value');
+				// TODO: acción si no logré moverme					
+				const currentPAs = await pag.locator('b[data-incidental-target="ap"]').getAttribute('data-value');
 				if(currentPAs == 0){ // consumir
 					console.log("No tiene PAs, intenta consumir");
 					await dropPlayerInventory(inv);
