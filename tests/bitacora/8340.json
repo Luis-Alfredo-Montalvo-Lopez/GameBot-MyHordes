@@ -660,6 +660,16 @@
           "y": 0
         }
       }
+    },
+    "20261103_063117_353": {
+      "request": {
+        "url": "/api/beyond/desert/move",
+        "method": "POST",
+        "body": {
+          "x": 1,
+          "y": 0
+        }
+      }
     }
   },
   "hasUsedDrugs": false,
