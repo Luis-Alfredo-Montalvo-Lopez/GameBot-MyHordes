@@ -579,6 +579,7 @@ async function playInDeserted(){
 			const contH = parseInt(await pag.textContent('.humans-cp'), 10);
 			let purge = (currentSaved.purge != undefined && currentSaved.purge);
 			if(contZ > contH || ( contZ > 0 && (purge && currentPoss.purged == undefined))){
+				console.log(`Z:${contZ}, H:${contH}`);
 				const attackTime = await pag.locator('div.attack-time').innerText();
 				let canUseWeapon = false;
 				let canUseWeaponBattery = false;
