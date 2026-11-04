@@ -1914,7 +1914,7 @@ async function sendTelegramMessage(message) {
     }
     console.log('Mensaje enviado con éxito:', body);
     return body;
-  } catch (error: any) {
+  } catch (error) {
     console.error('⚠️ Error enviando mensaje a Telegram:', error.message);
     //throw error;
   } finally {
