@@ -2374,6 +2374,37 @@
           "to": 8043241
         }
       }
+    },
+    "20261104_193305_445": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8043241",
+        "method": "PATCH",
+        "body": {
+          "d": "down-all",
+          "mod": null,
+          "to": "8039023"
+        }
+      }
+    },
+    "20261104_193306_409": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8039023/29450215",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8043241
+        }
+      }
+    },
+    "20261104_193306_656": {
+      "request": {
+        "url": "/api/beyond/desert/heroic",
+        "method": "POST",
+        "body": {
+          "action": "3"
+        }
+      }
     }
   },
   "hasUsedDrugs": false,
@@ -6483,7 +6514,8 @@
         {
           "x": 4,
           "y": 0,
-          "dried": false
+          "dried": false,
+          "purged": true
         },
         {
           "x": 5,
