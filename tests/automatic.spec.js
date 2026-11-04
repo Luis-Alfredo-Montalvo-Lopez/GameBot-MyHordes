@@ -49,7 +49,7 @@ let uniqueProfile;
 let weaponListData = {};
 let items = {};
 const botToken = "8571353822:AAH1avvfeURxxlx0ow2E5dpBorv0aq9mqrk"
-const $chatId  = "1975024455"
+const chatId  = "1975024455"
 test('resetLogs', async ({ page }) => {
 	// Navegar para que el navegador obtenga la cookie de Cloudflare
 	await page.goto('https://gesthordes.fr/rest/v1/prototype/all');
@@ -81,7 +81,7 @@ test('UpdateWeaponData', async ({ page }) => {
 		return res.json();
 		});
 	} catch (err) {
-		//console.log('❌ No se pudo obtener JSON válido:', err.message);
+		//log('❌ No se pudo obtener JSON válido:', err.message);
 		return; // salir sin hacer commit
 	}
 
@@ -92,7 +92,7 @@ test('GetGestHordes', async ({page}) => {
 	const idTown = lastDataSaved.idTown;
 	await page.goto('https://gesthordes.fr/news', { waitUntil: 'networkidle' });	
 	const cookies = await page.context().cookies();
-	//console.log(cookies);
+	//log(cookies);
 	const response = await page.evaluate(async (idTown) => {
 		const res = await fetch(`https://gesthordes.fr/rest/v1/carte/${idTown}`, {
 			headers: {
@@ -116,9 +116,9 @@ test('GetGestHordes', async ({page}) => {
 		*/
 		return res.json();
 	}, idTown);
-	//console.log(response);
+	//log(response);
 	await page.goto(`https://gesthordes.fr/carte/${idTown}`);
-	//console.log(response);
+	//log(response);
 	//parseJsonObject(response);
 	writeJSON('data/gestHordes.json', response);
 });
@@ -155,11 +155,11 @@ test('myhordes', async () => {
 		});
 		pag = await browserPlay.newPage();
 		
-		//console.error("Llendo a sitio MyHordes para redirigir: " + pag.url());
+		//error("Llendo a sitio MyHordes para redirigir: " + pag.url());
 		//await goto('/jx/town/dashboard');
-		//console.error("Sitio redirigido: " + pag.url());
+		//error("Sitio redirigido: " + pag.url());
 		//await new Promise(r => setTimeout(r, 3000));
-		//console.error("Sitio redirigido tras 3 seg: " + pag.url());
+		//error("Sitio redirigido tras 3 seg: " + pag.url());
 		
 		if(Object.keys(weaponListData).length === 0){
 			weaponListData = readJSON('data/weaponListData.json');
@@ -167,12 +167,12 @@ test('myhordes', async () => {
 		if(Object.keys(items).length === 0){
 			items = readJSON('data/items.json');
 		}
-		//console.log(items);
+		//log(items);
 		
 		// inicia ejecución
 		await main();
 	} catch(exception){
-		console.log(exception);
+		log(exception);
 		await sendTelegramMessage(exception);
 	} finally {
 		if(browserPlay){
@@ -1893,28 +1893,31 @@ function parseJsonObject(value) {
 
     return parsed;
 }
-async function sendTelegramMessage(message) {
+
+async function sendTelegramMessage(message: string) {
+  // Crea un contexto HTTP independiente de Playwright
+  const apiContext = await request.newContext();
   try {
-    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: message
-      })
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
+    const response = await apiContext.post(
+      `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+      {
+        data: {
+          chat_id: CHAT_ID,
+          text: message,
+        },
+      }
+    );
+    const body = await response.json();
+    if (!response.ok()) {
+      throw new Error(`HTTP ${response.status()}: ${body.description || response.statusText()}`);
     }
-
-    return await response.json();
-  } catch (error) {
-    console.error(`⚠️ Error enviando mensaje a Telegram: ${error.message}`);
+    console.log('Mensaje enviado con éxito:', body);
+    return body;
+  } catch (error: any) {
+    console.error('⚠️ Error enviando mensaje a Telegram:', error.message);
+    //throw error;
+  } finally {
+    await apiContext.dispose();
   }
 }
 function setPlayerInv(playInvTemp){
