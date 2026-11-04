@@ -1956,6 +1956,28 @@
           "to": 8043241
         }
       }
+    },
+    "20261104_133352_307": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8043241",
+        "method": "PATCH",
+        "body": {
+          "d": "down-all",
+          "mod": null,
+          "to": "8039023"
+        }
+      }
+    },
+    "20261104_133352_927": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8039023/29450215",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8043241
+        }
+      }
     }
   },
   "hasUsedDrugs": false,
