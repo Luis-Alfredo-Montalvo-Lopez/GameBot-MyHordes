@@ -1895,7 +1895,7 @@ function parseJsonObject(value) {
     return parsed;
 }
 
-async function sendTelegramMessage(message: string) {
+async function sendTelegramMessage(message) {
   // Crea un contexto HTTP independiente de Playwright
   const apiContext = await request.newContext();
   try {
