@@ -1900,10 +1900,10 @@ async function sendTelegramMessage(message) {
   const apiContext = await request.newContext();
   try {
     const response = await apiContext.post(
-      `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+      `https://api.telegram.org/bot${botToken}/sendMessage`,
       {
         data: {
-          chat_id: CHAT_ID,
+          chat_id: chatId,
           text: message,
         },
       }
