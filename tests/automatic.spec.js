@@ -60,6 +60,7 @@ test('resetLogs', async ({ page }) => {
 		dataSaved = readJSON(nameFile_dataSaved);
 	}
 	dataSaved.log = {}
+	await sendTelegramMessage("Mensaje Enviado");
 
 	writeJSON(nameFile_dataSaved, dataSaved);
 	createRoutes(20);
