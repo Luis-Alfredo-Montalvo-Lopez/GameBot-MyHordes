@@ -1872,9 +1872,15 @@ function getFormattedDate() {
 
 async function getCurrentCountCitizens() {
 	try{
-		return parseInt((await doAction("/jx/town/citizens", "GET", {})).match(
+		let count = parseInt((await doAction("/jx/town/citizens", "GET", {})).match(
 		  /<span[^>]*class="[^"]*citizen_count[^"]*"[^>]*>(.*?)<\/span>/is
 		)?.[1]?.match(/\d+/)?.[0] || '0',10);
+		if(count == 0){
+			let citoyens = gestHorderData?.data?.carte?.citoyens;
+			count = citoyens?.citoyens_dehors?.length + citoyens?.citoyens_ville?.length;
+		}
+		console.log("citoyens:" + count);
+		return count;
 	} catch (e){
 		return undefined;
 	}
