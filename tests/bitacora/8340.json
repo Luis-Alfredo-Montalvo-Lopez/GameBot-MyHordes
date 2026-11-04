@@ -1,5 +1,92 @@
 {
-  "log": {},
+  "log": {
+    "20261104_222222_788": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8043241",
+        "method": "PATCH",
+        "body": {
+          "d": "down-all",
+          "mod": null,
+          "to": "8039023"
+        }
+      }
+    },
+    "20261104_222223_001": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8039023/29450215",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8043241
+        }
+      }
+    },
+    "20261104_222223_940": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8039023/29486309",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8043241
+        }
+      }
+    },
+    "20261104_222224_334": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8039023/29487991",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8043241
+        }
+      }
+    },
+    "20261104_222224_716": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8039023/29492372",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8043241
+        }
+      }
+    },
+    "20261104_222225_102": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8039023/29495116",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8043241
+        }
+      }
+    },
+    "20261104_222225_610": {
+      "request": {
+        "url": "/api/beyond/desert/action",
+        "method": "POST",
+        "body": {
+          "item": "29450196",
+          "action": null
+        }
+      }
+    },
+    "20261104_222241_872": {
+      "request": {
+        "url": "/api/beyond/desert/move",
+        "method": "POST",
+        "body": {
+          "x": 5,
+          "y": 0
+        }
+      }
+    }
+  },
   "hasUsedDrugs": false,
   "heroicAction": {
     "hallazgo": true,
@@ -4152,7 +4239,7 @@
         }
       ],
       "tNotDried": 11,
-      "currentPoss": 4
+      "currentPoss": 5
     },
     "usedHeroicAction": true
   }
