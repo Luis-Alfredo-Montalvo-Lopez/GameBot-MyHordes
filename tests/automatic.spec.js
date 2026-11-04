@@ -597,8 +597,8 @@ async function playInDeserted(){
 				if(currentSaved.startItems.idInvWater != undefined){
 					await moveItem(inv.IdInvDes, inv.IdInvPer, currentSaved.startItems.idInvWater);
 				}
-				console.error(`list: ${[...weaponListData.weaponList, ...weaponListData.weaponHeavyList]}`);
-				console.error(`objets: ${{...playInv, ...deseInv}}`)
+				//console.error(`list: ${[...weaponListData.weaponList, ...weaponListData.weaponHeavyList]}`);
+				//console.error(`objets: ${{...playInv, ...deseInv}}`)
 				const combination = findClosestWeaponsCombination([...weaponListData.weaponList, ...weaponListData.weaponHeavyList].filter(o => o.id !== 12), contZ - contObjetive, {...playInv, ...deseInv});
 				console.error(`combination: ${combination}`);
 				if(combination != null){
@@ -1227,7 +1227,7 @@ async function getInventory(idInv){
 		return undefined;
 	}
 	let temp = await doAction("/rest/v1/game/inventory/" + idInv, "GET", {});
-	console.log("TEMP: " + temp);
+	//console.log("TEMP: " + temp);
 	return await getListItems(temp);
 }
 async function getHttpResponseInventory(idInv){
