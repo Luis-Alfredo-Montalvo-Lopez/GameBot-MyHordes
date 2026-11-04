@@ -641,7 +641,7 @@ async function playInDeserted(){
 				}else{
 					let battery = await searchItemIdInv([2], deseInv);
 					if(battery != undefined){
-						let weaponBattery = await searchMoveItem(
+						let weaponBattery = await searchItemIdInv(
 						[
 							291,   	//Puntero láser potente descargado
 							102,   	//Devastador (vacío)
