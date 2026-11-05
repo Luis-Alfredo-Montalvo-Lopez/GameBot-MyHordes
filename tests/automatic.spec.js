@@ -798,13 +798,20 @@ async function playInDeserted(){
 						return await main();
 					}
 				}
+				if(!currentPoss.dried){
+					currentPoss.dried = await pag
+						.locator('#mgd-digging-note img')
+						.evaluateAll(imgs =>
+							imgs.some(img => img.src.includes('lock'))
+						);
+				}
 				
 				// 4. Si faltan 4 horas para el ataque deberá avanzar sin agotar la zona hasta completar la ruta.
 				const mgdZoneNote = await pag.locator('#mgd-zone-note').count();
 				const attackTime = await pag.locator('div.attack-time').innerText();
 				let inv = await getInventoryIds();
-				if (await mgdZoneNote > 0 || currentPoss.dried || (
-					/^~[3210]:/.test(attackTime) && (currentDay != 1 //|| await getCurrentCountCitizens() >= 37
+				if (await mgdZoneNote > 0 || currentPoss.dried ||  || (
+					/^~[3210]:/.test(attackTime) && (currentDay != 1 || await getCurrentCountCitizens() >= 37
 													)
 				)) {// moverse
 					console.log("Inicia flujo para moverse");
