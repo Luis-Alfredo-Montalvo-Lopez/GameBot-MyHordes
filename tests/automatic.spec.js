@@ -810,7 +810,7 @@ async function playInDeserted(){
 				const mgdZoneNote = await pag.locator('#mgd-zone-note').count();
 				const attackTime = await pag.locator('div.attack-time').innerText();
 				let inv = await getInventoryIds();
-				if (await mgdZoneNote > 0 || currentPoss.dried ||  (
+				if (await mgdZoneNote > 0 || currentPoss.dried || currentPoss.skipPoss == true ||  (
 					/^~[3210]:/.test(attackTime) && (currentDay != 1 || await getCurrentCountCitizens() >= 37
 													)
 				)) {// moverse
