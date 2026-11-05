@@ -1221,6 +1221,10 @@ function retryPush(filePath = ".", m = 3){
 	    } catch (e) {
 	        if(i === (m - 1)) {
 				console.log("no se logró guardar cambios");
+			}else{
+				console.log(execSync('git status --porcelain').toString());
+				console.log(execSync('git branch').toString());
+				console.log(execSync('git remote -v').toString());
 			}
 	    }
 	}
