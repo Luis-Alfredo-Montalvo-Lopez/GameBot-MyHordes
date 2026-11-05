@@ -1214,14 +1214,14 @@ function writeJSON(filePath, data) {
 	}
 }
 
-async function retryPush(){
-	for(let i = 0; i < 3; i++){
+function retryPush(m = 3){
+	for(let i = 0; i < m; i++){
     	try {
 			execSync('git pull --rebase https://x-access-token:' + process.env.GITHUB_TOKEN + '@github.com/' +process.env.GITHUB_REPOSITORY +'.git main');
 			execSync('git push https://x-access-token:' + process.env.GITHUB_TOKEN + '@github.com/' + process.env.GITHUB_REPOSITORY + '.git HEAD:main');
 			break;
 	    } catch (e) {
-	        if(i === 2) {
+	        if(i === (m - 1)) {
 				console.log("no se logró guardar cambios");
 			}
 	    }
