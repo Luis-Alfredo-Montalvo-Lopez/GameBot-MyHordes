@@ -1225,6 +1225,8 @@ function retryPush(filePath = ".", m = 3){
 				console.log(execSync('git status --porcelain').toString());
 				console.log(execSync('git branch').toString());
 				console.log(execSync('git remote -v').toString());
+				execSync(`git add .`);
+				execSync(`git commit -m "file changed: ."`);
 			}
 	    }
 	}
