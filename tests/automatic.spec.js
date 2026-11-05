@@ -1208,7 +1208,7 @@ function writeJSON(filePath, data) {
 	}
 }
 
-function retryPush(filePath, m = 3){
+function retryPush(filePath = ".", m = 3){
 	execSync('git config user.name "github-actions[bot]"');
 	execSync('git config user.email "41898282+github-actions[bot]@users.noreply.github.com"');
 	for(let i = 0; i < m; i++){
