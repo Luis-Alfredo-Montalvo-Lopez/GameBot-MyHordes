@@ -462,6 +462,92 @@
           "y": 1
         }
       }
+    },
+    "20261105_193454_257": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8055436",
+        "method": "PATCH",
+        "body": {
+          "d": "down-all",
+          "mod": null,
+          "to": "8051186"
+        }
+      }
+    },
+    "20261105_193454_458": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8051186/29450215",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8055436
+        }
+      }
+    },
+    "20261105_193455_409": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8051186/29509426",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8055436
+        }
+      }
+    },
+    "20261105_193455_810": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8051186/29509429",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8055436
+        }
+      }
+    },
+    "20261105_193456_205": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8051186/29509473",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8055436
+        }
+      }
+    },
+    "20261105_193456_600": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8051186/29517384",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8055436
+        }
+      }
+    },
+    "20261105_193457_380": {
+      "request": {
+        "url": "/api/beyond/desert/action",
+        "method": "POST",
+        "body": {
+          "item": "29509408",
+          "action": null
+        }
+      }
+    },
+    "20261105_193514_219": {
+      "request": {
+        "url": "/api/beyond/desert/move",
+        "method": "POST",
+        "body": {
+          "x": 3,
+          "y": 0
+        }
+      }
     }
   },
   "hasUsedDrugs": false,
@@ -4558,7 +4644,7 @@
         {
           "x": 2,
           "y": 0,
-          "dried": false,
+          "dried": true,
           "digged": true
         },
         {
@@ -4618,7 +4704,7 @@
         }
       ],
       "tNotDried": 11,
-      "currentPoss": 2
+      "currentPoss": 3
     },
     "usedHeroicAction": true
   }
