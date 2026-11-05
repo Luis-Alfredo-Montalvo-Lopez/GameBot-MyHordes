@@ -1884,8 +1884,10 @@ async function getCurrentCountCitizens() {
 		)?.[1]?.match(/\d+/)?.[0] || '0',10);
 		if(count == 0){
 			gestHorderData = await getGestHordes();
-			let citoyens = gestHorderData?.data?.carte?.citoyens;
-			count = citoyens?.citoyens_dehors?.length + citoyens?.citoyens_ville?.length;
+			if(gestHorderData?.data?.general?.ville?.map_id == lastDataSaved?.idTown) {
+				let citoyens = gestHorderData?.data?.carte?.citoyens;
+				count = citoyens?.citoyens_dehors?.length + citoyens?.citoyens_ville?.length;
+			}
 		}
 		console.log("citoyens:" + count);
 		return count;
