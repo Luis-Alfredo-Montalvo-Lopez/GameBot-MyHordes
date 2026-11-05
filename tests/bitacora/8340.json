@@ -548,6 +548,103 @@
           "y": 0
         }
       }
+    },
+    "20261105_200332_718": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8055436",
+        "method": "PATCH",
+        "body": {
+          "d": "down-all",
+          "mod": null,
+          "to": "8051212"
+        }
+      }
+    },
+    "20261105_200332_938": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8051212/29450215",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8055436
+        }
+      }
+    },
+    "20261105_200333_984": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8051212/29509426",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8055436
+        }
+      }
+    },
+    "20261105_200334_446": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8051212/29509429",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8055436
+        }
+      }
+    },
+    "20261105_200334_892": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8051212/29509473",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8055436
+        }
+      }
+    },
+    "20261105_200335_351": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8051212/29517384",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8055436
+        }
+      }
+    },
+    "20261105_200335_789": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8051212/29524772",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8055436
+        }
+      }
+    },
+    "20261105_200336_585": {
+      "request": {
+        "url": "/api/beyond/desert/action",
+        "method": "POST",
+        "body": {
+          "item": "29509408",
+          "action": null
+        }
+      }
+    },
+    "20261105_200353_537": {
+      "request": {
+        "url": "/api/beyond/desert/move",
+        "method": "POST",
+        "body": {
+          "x": 4,
+          "y": 0
+        }
+      }
     }
   },
   "hasUsedDrugs": false,
@@ -4705,7 +4802,7 @@
         }
       ],
       "tNotDried": 11,
-      "currentPoss": 3
+      "currentPoss": 4
     },
     "usedHeroicAction": true
   }
