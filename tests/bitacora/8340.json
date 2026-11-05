@@ -4653,7 +4653,7 @@
           "dried": false,
           "purged": true,
           "digged": true,
-          "skipPoss" : true
+          "skipPoss": true
         },
         {
           "x": 4,
