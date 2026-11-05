@@ -4704,9 +4704,9 @@
         }
       ],
       "tNotDried": 11,
-      "currentPoss": 3,
-      "skipPoss" : true
+      "currentPoss": 3
     },
-    "usedHeroicAction": true
+    "usedHeroicAction": true,
+    "skipPoss" : true
   }
 }
