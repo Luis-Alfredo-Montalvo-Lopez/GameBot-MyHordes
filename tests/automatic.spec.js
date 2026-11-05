@@ -1203,9 +1203,11 @@ function writeJSON(filePath, data) {
 	try{
 		execSync('git config user.name "github-actions[bot]"');
 		execSync('git config user.email "41898282+github-actions[bot]@users.noreply.github.com"');
-		execSync(`git add ${filePath}`);
 		//execSync('git pull --rebase https://x-access-token:' + process.env.GITHUB_TOKEN +
 		//'@github.com/' + process.env.GITHUB_REPOSITORY + '.git main');
+		execSync('git pull --rebase https://x-access-token:' + process.env.GITHUB_TOKEN + '@github.com/' +process.env.GITHUB_REPOSITORY +'.git main');
+		execSync(`git add ${filePath}`);
+		execSync(`git commit -m "file changed: ${filePath}"`);
 		retryPush();
 		console.log(`Archivo ${filePath} actualizado`);
 	} catch(error){
@@ -1216,8 +1218,6 @@ function writeJSON(filePath, data) {
 function retryPush(m = 3){
 	for(let i = 0; i < m; i++){
     	try {
-			execSync('git pull --rebase https://x-access-token:' + process.env.GITHUB_TOKEN + '@github.com/' +process.env.GITHUB_REPOSITORY +'.git main');
-			execSync(`git commit -m "file changed: ${filePath}"`);
 			execSync('git push https://x-access-token:' + process.env.GITHUB_TOKEN + '@github.com/' + process.env.GITHUB_REPOSITORY + '.git HEAD:main');
 			break;
 	    } catch (e) {
@@ -1745,6 +1745,7 @@ function createRoutes(PAs, Ox = 0, Oy = 0) {
 			try {
 				execSync('git config user.name "github-actions[bot]"');
 				execSync('git config user.email "41898282+github-actions[bot]@users.noreply.github.com"');
+				execSync('git pull --rebase https://x-access-token:' + process.env.GITHUB_TOKEN + '@github.com/' +process.env.GITHUB_REPOSITORY +'.git main');
 				execSync(`git add -f ${filePath}`);
 				execSync(`git commit -m "file changed: ${filePath}" || echo "No changes to commit"`);
 				retryPush();
