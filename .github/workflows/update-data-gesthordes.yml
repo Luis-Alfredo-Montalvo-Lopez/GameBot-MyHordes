@@ -9,7 +9,11 @@ on:
   
 permissions:
   contents: write   # da permiso de escritura al GITHUB_TOKEN
-  
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
 jobs:
   test:
     timeout-minutes: 20
