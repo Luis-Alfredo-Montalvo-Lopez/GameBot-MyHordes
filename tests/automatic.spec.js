@@ -1207,11 +1207,24 @@ function writeJSON(filePath, data) {
 		execSync(`git commit -m "file changed: ${filePath}"`);
 		//execSync('git pull --rebase https://x-access-token:' + process.env.GITHUB_TOKEN +
 		//'@github.com/' + process.env.GITHUB_REPOSITORY + '.git main');
-		execSync('git push https://x-access-token:' + process.env.GITHUB_TOKEN +
-		'@github.com/' + process.env.GITHUB_REPOSITORY + '.git HEAD:main');
+		await retryPush();
 		console.log(`Archivo ${filePath} actualizado`);
 	} catch(error){
 		//console.error(`Error al guardar cambios para archivo ${filePath} en GitHub: `, error.message);
+	}
+}
+
+async function retryPush(){
+	for(let i = 0; i < 3; i++){
+    	try {
+			execSync('git pull --rebase https://x-access-token:' + process.env.GITHUB_TOKEN + '@github.com/' +process.env.GITHUB_REPOSITORY +'.git main');
+			execSync('git push https://x-access-token:' + process.env.GITHUB_TOKEN + '@github.com/' + process.env.GITHUB_REPOSITORY + '.git HEAD:main');
+			break;
+	    } catch (e) {
+	        if(i === 2) {
+				console.log("no se logró guardar cambios");
+			}
+	    }
 	}
 }
 
@@ -1734,8 +1747,7 @@ function createRoutes(PAs, Ox = 0, Oy = 0) {
 				execSync('git config user.email "41898282+github-actions[bot]@users.noreply.github.com"');
 				execSync(`git add -f ${filePath}`);
 				execSync(`git commit -m "file changed: ${filePath}" || echo "No changes to commit"`);
-				execSync('git push https://x-access-token:' + process.env.GITHUB_TOKEN +
-					'@github.com/' + process.env.GITHUB_REPOSITORY + '.git HEAD:main');
+				await retryPush();
 				console.log(`Archivo ${filePath} actualizado en GitHub`);
 			} catch (error) {
 				console.error(`Error al guardar cambios para archivo ${filePath}:`, error.message);
