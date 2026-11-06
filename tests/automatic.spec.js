@@ -792,7 +792,6 @@ async function playInDeserted(){
 						currentPoss.digged = true;
 					}catch(e){
 						console.log("digButton: " + e);
-						currentPoss.dried = true;
 					}finally{
 						await goto('/jx/beyond/desert/cached');
 						return await main();
