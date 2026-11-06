@@ -42,10 +42,10 @@
         },
         "lvl_t_d_g": 0,
         "defense_data": {
-          "total": 206,
+          "total": 208,
           "buildings": 90,
           "upgrades": 0,
-          "objet": 14,
+          "objet": 16,
           "bonus_od": 10,
           "maison_citoyen": 41,
           "gardiens": 15,
@@ -56,7 +56,7 @@
           "day": 3,
           "bonus_sd": 0,
           "bonus_sd_pct": 0,
-          "def_h_s_d": 206,
+          "def_h_s_d": 208,
           "def_s_d": 0
         }
       },
@@ -1347,7 +1347,7 @@
                 "nbr_item_bank_casse": 0
               },
               "50": {
-                "nbr_item": 17,
+                "nbr_item": 18,
                 "nbr_item_casse": 0,
                 "id": 50,
                 "id_mh": 50,
@@ -1469,7 +1469,7 @@
                 "id": 280,
                 "id_mh": 280,
                 "category_objet_id": 1,
-                "nbr_item_bank": 0,
+                "nbr_item_bank": 1,
                 "nbr_item_bank_casse": 0
               },
               "301": {
@@ -1522,7 +1522,7 @@
                 "id": 108,
                 "id_mh": 108,
                 "category_objet_id": 2,
-                "nbr_item_bank": 1,
+                "nbr_item_bank": 0,
                 "nbr_item_bank_casse": 0
               },
               "110": {
@@ -1939,7 +1939,7 @@
                 "id": 112,
                 "id_mh": 112,
                 "category_objet_id": 8,
-                "nbr_item_bank": 3,
+                "nbr_item_bank": 1,
                 "nbr_item_bank_casse": 0
               },
               "116": {
@@ -2144,10 +2144,9 @@
           "980": 8,
           "1000": 1,
           "1050": 2,
-          "1080": 1,
           "1110": 2,
-          "1120": 3,
-          "1130": 1,
+          "1120": 1,
+          "1130": 3,
           "1180": 4,
           "1200": 1,
           "1210": 1,
@@ -2178,8 +2177,10 @@
           "2400": 3,
           "2410": 2,
           "2650": 1,
+          "2660": 1,
           "2770": 1,
           "2790": 4,
+          "2800": 1,
           "2820": 2,
           "2840": 3,
           "2850": 1,
@@ -2343,7 +2344,7 @@
           }
         ]
       },
-      "date_dern_maj": "Dernière mise à jour le 06/11/2026 à 22:16 par Magnum",
+      "date_dern_maj": "Dernière mise à jour le 06/11/2026 à 23:03 par SofiTag28",
       "is_lead": false,
       "my_ville": false,
       "ville": {
@@ -2358,7 +2359,7 @@
         "hard": false,
         "chaos": false,
         "devast": false,
-        "water": 86,
+        "water": 84,
         "saison": 19,
         "origin": 2,
         "map_id": 8340,
@@ -54743,15 +54744,15 @@
           "x": 20,
           "y": 24,
           "ame_ids": [],
-          "zombie": null,
+          "zombie": 0,
           "zombie_min": null,
           "zombie_max": null,
           "zombie_kill": null,
           "pdc": 3,
-          "dried": null,
+          "dried": false,
           "danger": 0,
           "tag": null,
-          "day": null,
+          "day": 3,
           "vue": 1,
           "camped": false,
           "empty": false,
@@ -54768,7 +54769,7 @@
           "fouille_restante_maj_heure": null,
           "fouille_restante_maj_by_id": null,
           "dig": null,
-          "heure_maj": null,
+          "heure_maj": "23:03:26",
           "marqueur_maj_day": null,
           "marqueur_maj_heure": null,
           "catapulte_maj_day": null,
@@ -54789,35 +54790,42 @@
           "jour_kill": null,
           "mode_estimation": false,
           "zombie_recalcule": false,
-          "indic_visite": null,
-          "diff_jours": 2,
+          "indic_visite": "vueAuj",
+          "diff_jours": 0,
           "zombie_estim": 0,
           "carte_alter": {
-            "112": null,
-            "113": null,
-            "114": null,
-            "116": null,
-            "117": null,
-            "118": null
+            "112": 0,
+            "113": 1,
+            "114": 0,
+            "116": 0,
+            "117": 0,
+            "118": 0
           },
           "carte_alter_encombrant": {
-            "112": null,
-            "113": null,
-            "114": null,
-            "116": null,
-            "117": null,
-            "118": null
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "116": 0,
+            "117": 0,
+            "118": 0
           },
           "carte_scrut": null,
           "marqueur_only": false,
-          "citoyen_id": null,
+          "citoyen_id": 29299,
           "marqueur_id": null,
           "catapulte_id": null,
           "bat_id": null,
           "bat_hypothese_id": null,
           "plan": null,
           "status_bat": null,
-          "items": [],
+          "items": [
+            {
+              "id": 6094409,
+              "item_id": 50,
+              "nombre": 1,
+              "broken": false
+            }
+          ],
           "consignes": []
         },
         "2421": {
@@ -55250,9 +55258,9 @@
         "hard": false,
         "chaos": false,
         "devast": false,
-        "water": 86,
+        "water": 84,
         "saison": 19,
-        "date_time": "2026-11-06T22:16:11+01:00",
+        "date_time": "2026-11-06T23:03:26+01:00",
         "chaman": {
           "id": 24016,
           "id_my_hordes": 33450,
@@ -55260,9 +55268,9 @@
         },
         "guide": null,
         "update_by": {
-          "id": 8310,
-          "id_my_hordes": 15668,
-          "pseudo": "Magnum"
+          "id": 29299,
+          "id_my_hordes": 39438,
+          "pseudo": "SofiTag28"
         },
         "lang": "es",
         "map_id": 8340,
