@@ -1059,6 +1059,17 @@
           "to": "8051264"
         }
       }
+    },
+    "20261106_163623_688": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8055436",
+        "method": "PATCH",
+        "body": {
+          "d": "down-all",
+          "mod": null,
+          "to": "8051264"
+        }
+      }
     }
   },
   "hasUsedDrugs": false,
