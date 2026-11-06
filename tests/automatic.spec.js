@@ -784,9 +784,9 @@ async function playInDeserted(){
 					await digRuinButton.click();
 					return await main();
 				}
-				
 				// 2. Si es posible escavar se intentará recolectar recursos antes de moverse.
 				const digButton = await pag.locator('#dig_button');
+				console.log("digButton: " + digButton);
 				if(await digButton.count() > 0  && currentPoss.digged == undefined){ // escavar
 					try{
 						currentPoss.digged = true;
