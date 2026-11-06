@@ -1210,6 +1210,92 @@
           "y": 1
         }
       }
+    },
+    "20261106_211820_134": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8055436",
+        "method": "PATCH",
+        "body": {
+          "d": "down-all",
+          "mod": null,
+          "to": "8051239"
+        }
+      }
+    },
+    "20261106_211820_332": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8051239/29509426",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8055436
+        }
+      }
+    },
+    "20261106_211821_031": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8051239/29517270",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8055436
+        }
+      }
+    },
+    "20261106_211821_393": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8051239/29509473",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8055436
+        }
+      }
+    },
+    "20261106_211821_755": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8051239/29517384",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8055436
+        }
+      }
+    },
+    "20261106_211822_122": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8051239/29530585",
+        "method": "PATCH",
+        "body": {
+          "d": "up",
+          "mod": null,
+          "to": 8055436
+        }
+      }
+    },
+    "20261106_211822_784": {
+      "request": {
+        "url": "/api/beyond/desert/action",
+        "method": "POST",
+        "body": {
+          "item": "29509408",
+          "action": null
+        }
+      }
+    },
+    "20261106_211839_086": {
+      "request": {
+        "url": "/api/beyond/desert/move",
+        "method": "POST",
+        "body": {
+          "x": 3,
+          "y": 1
+        }
+      }
     }
   },
   "hasUsedDrugs": false,
@@ -5368,7 +5454,7 @@
         }
       ],
       "tNotDried": 11,
-      "currentPoss": 7
+      "currentPoss": 8
     },
     "usedHeroicAction": true
   }
