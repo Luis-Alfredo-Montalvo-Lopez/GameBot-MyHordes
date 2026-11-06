@@ -5135,7 +5135,7 @@
     "currentStep": 6,
     "purge": true,
     "startItems": {
-      "idFood": 121,
+      "idFood": 125,
       "idWater": 1,
       "idInvFood": "29450215",
       "idInvWater": "29450215"
