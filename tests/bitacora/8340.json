@@ -922,6 +922,27 @@
           "action": null
         }
       }
+    },
+    "20261106_145330_086": {
+      "request": {
+        "url": "/rest/v1/game/inventory/8055436",
+        "method": "PATCH",
+        "body": {
+          "d": "down-all",
+          "mod": null,
+          "to": "8051264"
+        }
+      }
+    },
+    "20261106_145330_851": {
+      "request": {
+        "url": "/api/beyond/desert/action",
+        "method": "POST",
+        "body": {
+          "item": "29450215",
+          "action": null
+        }
+      }
     }
   },
   "hasUsedDrugs": false,
