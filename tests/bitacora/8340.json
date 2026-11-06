@@ -5126,6 +5126,7 @@
     "startItems": {
       "idFood": 121,
       "idWater": 1,
+      "idInvFood": "29450215",
       "idInvWater": "29450215"
     },
     "route": {
