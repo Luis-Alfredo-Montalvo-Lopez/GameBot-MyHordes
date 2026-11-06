@@ -512,6 +512,7 @@ async function playInDeserted(){
 				if(currentPAs == 0){ // consumir
 					let inv = await getInventoryIds();
 					console.log("No tiene PAs, intenta consumir");
+					await takeSurvivalFood(inv);
 					let canUseItem = false;
 					//comer
 					if(currentSaved?.startItems?.idInvFood === undefined || (await doAction("/api/beyond/desert/action", "POST", {item: currentSaved.startItems.idInvFood, action: getActionIdFromHtml(await doAction("/jx/beyond/partial/desert/actions", "POST", {}), currentSaved.startItems.idInvFood)})).error){
@@ -818,13 +819,7 @@ async function playInDeserted(){
 					const currentPAs = await pag.locator('b[data-incidental-target="ap"]').getAttribute('data-value');
 					if(currentPAs == 0){ // consumir
 						console.log("No tiene PAs, intenta consumir");
-						await dropPlayerInventory(inv);
-						if(currentSaved.startItems.idInvFood != undefined){
-							await moveItem(inv.IdInvDes, inv.IdInvPer, currentSaved.startItems.idInvFood);
-						}
-						if(currentSaved.startItems.idInvWater != undefined){
-							await moveItem(inv.IdInvDes, inv.IdInvPer, currentSaved.startItems.idInvWater);
-						}
+						await takeSurvivalFood(inv);
 						let canUseItem = false;
 						//comer
 						if(currentSaved?.startItems?.idInvFood === undefined || (await doAction("/api/beyond/desert/action", "POST", {item: currentSaved.startItems.idInvFood, action: getActionIdFromHtml(await doAction("/jx/beyond/partial/desert/actions", "POST", {}), currentSaved.startItems.idInvFood)})).error){
@@ -1962,5 +1957,19 @@ function setPlayerInv(playInvTemp){
 				lastDataSaved.invSize = 5;
 			}
 		}
+	}
+}
+async function takeSurvivalFood(inv = await getInventoryIds()){
+	await dropPlayerInventory(inv);
+	let deseInv = await getDesertInventory(inv);
+	let tFood = await searchItemIdInv([currentSaved.startItems.idFood], deseInv);
+	let tWater = await searchItemIdInv([currentSaved.startItems.idWater], deseInv);
+	if(currentSaved.startItems.idInvFood != undefined && tFood != undefined){
+		await moveItem(inv.IdInvDes, inv.IdInvPer, tFood);
+		currentSaved.startItems.idInvFood = tFood;
+	}
+	if(currentSaved.startItems.idInvWater != undefined && tWater != undefined){
+		await moveItem(inv.IdInvDes, inv.IdInvPer, tWater);
+		currentSaved.startItems.idInvWater = tWater;
 	}
 }
