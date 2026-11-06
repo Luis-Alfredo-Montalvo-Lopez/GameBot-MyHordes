@@ -1959,7 +1959,8 @@ function setPlayerInv(playInvTemp){
 		}
 	}
 }
-async function takeSurvivalFood(inv = await getInventoryIds()){
+async function takeSurvivalFood(inv){
+    inv ??= await getInventoryIds();
 	await dropPlayerInventory(inv);
 	let deseInv = await getDesertInventory(inv);
 	let tFood = await searchItemIdInv([currentSaved.startItems.idFood], deseInv);
