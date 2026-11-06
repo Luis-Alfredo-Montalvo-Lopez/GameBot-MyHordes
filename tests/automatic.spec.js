@@ -789,8 +789,8 @@ async function playInDeserted(){
 				console.log("digButton: " + digButton);
 				if(await digButton.count() > 0  && currentPoss.digged == undefined){ // escavar
 					try{
+						await digButton.click({ timeout: 50000 });
 						currentPoss.digged = true;
-						await digButton.click({ timeout: 30000 });
 					}catch(e){
 						currentPoss.dried = true;
 					}finally{
