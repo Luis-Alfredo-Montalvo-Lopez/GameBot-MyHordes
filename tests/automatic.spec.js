@@ -786,12 +786,12 @@ async function playInDeserted(){
 				}
 				// 2. Si es posible escavar se intentará recolectar recursos antes de moverse.
 				const digButton = await pag.locator('#dig_button');
-				console.log("digButton: " + digButton);
 				if(await digButton.count() > 0  && currentPoss.digged == undefined){ // escavar
 					try{
 						await digButton.click({ timeout: 50000 });
 						currentPoss.digged = true;
 					}catch(e){
+						console.log("digButton: " + e);
 						currentPoss.dried = true;
 					}finally{
 						await goto('/jx/beyond/desert/cached');
