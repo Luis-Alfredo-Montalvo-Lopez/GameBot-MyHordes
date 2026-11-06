@@ -4848,8 +4848,7 @@
         {
           "x": 5,
           "y": 0,
-          "dried": false,
-          "digged": true
+          "dried": false
         },
         {
           "x": 5,
