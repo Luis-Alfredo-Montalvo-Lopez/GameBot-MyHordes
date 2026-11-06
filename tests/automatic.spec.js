@@ -512,7 +512,7 @@ async function playInDeserted(){
 				if(currentPAs == 0){ // consumir
 					let inv = await getInventoryIds();
 					console.log("No tiene PAs, intenta consumir");
-					await takeSurvivalFood(inv);
+					await takeSurvivalFood(currentSaved, inv);
 					let canUseItem = false;
 					//comer
 					if(currentSaved?.startItems?.idInvFood === undefined || (await doAction("/api/beyond/desert/action", "POST", {item: currentSaved.startItems.idInvFood, action: getActionIdFromHtml(await doAction("/jx/beyond/partial/desert/actions", "POST", {}), currentSaved.startItems.idInvFood)})).error){
@@ -819,7 +819,7 @@ async function playInDeserted(){
 					const currentPAs = await pag.locator('b[data-incidental-target="ap"]').getAttribute('data-value');
 					if(currentPAs == 0){ // consumir
 						console.log("No tiene PAs, intenta consumir");
-						await takeSurvivalFood(inv);
+						await takeSurvivalFood(currentSaved, inv);
 						let canUseItem = false;
 						//comer
 						if(currentSaved?.startItems?.idInvFood === undefined || (await doAction("/api/beyond/desert/action", "POST", {item: currentSaved.startItems.idInvFood, action: getActionIdFromHtml(await doAction("/jx/beyond/partial/desert/actions", "POST", {}), currentSaved.startItems.idInvFood)})).error){
@@ -1959,7 +1959,7 @@ function setPlayerInv(playInvTemp){
 		}
 	}
 }
-async function takeSurvivalFood(inv){
+async function takeSurvivalFood(currentSaved, inv){
     inv ??= await getInventoryIds();
 	await dropPlayerInventory(inv);
 	let deseInv = await getDesertInventory(inv);
